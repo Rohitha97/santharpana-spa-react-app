@@ -1,6 +1,6 @@
 import React from "react";
 
-function AppoinmentComponents() {
+function AppoinmentComponents({}) {
   return (
     <>
       <section className="section appoinment">

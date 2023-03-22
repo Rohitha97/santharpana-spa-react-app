@@ -1,6 +1,7 @@
 import React from "react";
+import HeaderProps from "../../DataModel/HeaderProps";
 
-function PageHeader() {
+function PageHeader({ title, subtitle }: HeaderProps) {
   return (
     <>
       <section className="page-title bg-1">
@@ -9,8 +10,8 @@ function PageHeader() {
           <div className="row">
             <div className="col-md-12">
               <div className="block text-center">
-                <span className="text-white">Contact Us</span>
-                <h1 className="text-capitalize mb-5 text-lg">Get in Touch</h1>
+                <span className="text-white">{subtitle}</span>
+                <h1 className="text-capitalize mb-5 text-lg">{title}</h1>
               </div>
             </div>
           </div>
