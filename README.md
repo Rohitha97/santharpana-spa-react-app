@@ -26,3 +26,4 @@ The application uses the following dependencies:
    * react-router-dom
    * react-icons
    * bootstrap
+   * emailjs
