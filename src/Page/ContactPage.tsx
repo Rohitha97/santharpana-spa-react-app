@@ -1,5 +1,5 @@
 import React from "react";
-import ContactCards from "../components/Contact/contactCards";
+import ContactCards from "../components/Contact/ContactCards";
 import ContactForm from "../components/Contact/ContactForm";
 import Footer from "../components/Layouts/Footer";
 import NavBar from "../components/Layouts/NavBar";

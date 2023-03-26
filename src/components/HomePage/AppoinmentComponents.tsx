@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 function AppoinmentComponents({}) {
+  // const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_wfya6jy",
+          "template_8lkyhas",
+          form.current,
+          "4Dndd4knu6wytsWdR"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            toast.success("Your booking has been sent successfully");
+            form.current?.reset();
+          },
+          (error) => {
+            console.log(error.text);
+            toast.error("Something went wrong");
+          }
+        );
+    }
+  };
+
   return (
     <>
       <section className="section appoinment">
@@ -24,10 +56,8 @@ function AppoinmentComponents({}) {
             <div className="col-lg-6 col-md-10 ">
               <div className="appoinment-wrap mt-5 mt-lg-0">
                 <h2 className="mb-2 title-color">Book appoinment</h2>
-                <form
-                  action="https://formsubmit.co/santharpanaspa@gmail.com"
-                  method="POST"
-                >
+                <ToastContainer />
+                <form ref={form} onSubmit={sendEmail}>
                   <div className="row">
                     <div className="col-lg-6 my-2">
                       <div className="form-group">
@@ -43,7 +73,7 @@ function AppoinmentComponents({}) {
                       <div className="form-group">
                         <input
                           name="Date"
-                          type="text"
+                          type="date"
                           className="form-control"
                           placeholder="dd/mm/yyyy"
                         />
@@ -66,7 +96,7 @@ function AppoinmentComponents({}) {
                           name="Name"
                           type="text"
                           className="form-control"
-                          placeholder="Full Name"
+                          placeholder="Name"
                         />
                       </div>
                     </div>
@@ -74,10 +104,10 @@ function AppoinmentComponents({}) {
                     <div className="col-lg-6 my-2">
                       <div className="form-group">
                         <input
-                          name="Phone"
-                          type="Number"
+                          name="email"
+                          type="email"
                           className="form-control"
-                          placeholder="Phone Number"
+                          placeholder="Email"
                         />
                       </div>
                     </div>
@@ -87,6 +117,7 @@ function AppoinmentComponents({}) {
                       name="Message"
                       className="form-control"
                       placeholder="Your Message"
+                      style={{ height: "210px" }}
                     ></textarea>
                   </div>
 
@@ -95,6 +126,7 @@ function AppoinmentComponents({}) {
                   <button
                     className="btn btn-main btn-round-full rounded-5"
                     type="submit"
+                    // onClick={handleClick}
                   >
                     Make Appoinment<i className="icofont-simple-right ml-2"></i>
                   </button>

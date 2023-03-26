@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PricingComponents from "./PricingComponents";
+import { AiOutlineBook, AiOutlineClockCircle } from "react-icons/ai";
+import { MdSupportAgent } from "react-icons/md";
+import {
+  FaFacebookF,
+  FaGoogle,
+  FaInstagram,
+  FaTripadvisor,
+} from "react-icons/fa";
 
 function Header() {
   return (
     <>
-      {" "}
       <section className="banner">
         <div className="container">
           <div className="row">
@@ -42,7 +49,7 @@ function Header() {
               <div className="feature-block d-lg-flex">
                 <div className="feature-item mb-5 mb-lg-0">
                   <div className="feature-icon mb-4">
-                    <i className="icofont-ebook"></i>
+                    <AiOutlineBook color="#4b1e3d" size={"40px"} />
                   </div>
                   <span>24 Hours Service</span>
                   <h4 className="mb-3">Online Appoinment</h4>
@@ -60,7 +67,7 @@ function Header() {
 
                 <div className="feature-item mb-5 mb-lg-0">
                   <div className="feature-icon mb-4">
-                    <i className="icofont-ui-clock"></i>
+                    <AiOutlineClockCircle color="#4b1e3d" size={"40px"} />
                   </div>
                   <span>Timing schedule</span>
                   <h4 className="mb-3">Working Hours</h4>
@@ -73,19 +80,29 @@ function Header() {
 
                 <div className="feature-item mb-5 mb-lg-0">
                   <div className="feature-icon mb-4">
-                    <i className="icofont-support"></i>
+                    <MdSupportAgent color="#4b1e3d" size={"40px"} />
                   </div>
                   <span>Contact</span>
                   <h4 className="mb-3">+94 70 662 6139</h4>
                   <ul className="list-inline footer-socials mt-4">
                     <li className="list-inline-item">
                       <a href="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
-                        <i className="icofont-facebook"></i>
+                        <FaFacebookF color="white" />
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="https://www.instagram.com/santharpanaspa/">
-                        <i className="icofont-instagram"></i>
+                        <FaInstagram color="white" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
+                        <FaGoogle color="white" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
+                        <FaTripadvisor color="white" />
                       </a>
                     </li>
                   </ul>

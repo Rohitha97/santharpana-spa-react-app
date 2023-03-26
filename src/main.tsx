@@ -7,6 +7,7 @@ import AppoinmentPage from "./Page/AppoinmentPage";
 import AboutPage from "./Page/AboutPage";
 import ContactPage from "./Page/ContactPage";
 import ServicesPage from "./Page/ServicesPage";
+import ServicesDescription from "./Page/ServicesDescription";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/description" element={<ServicesDescription />} />
         <Route path="/appoinment" element={<AppoinmentPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />

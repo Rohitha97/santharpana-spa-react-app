@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  FaFacebookF,
+  FaGoogle,
+  FaInstagram,
+  FaTripadvisor,
+} from "react-icons/fa";
+import ScrollTriggerButton from "./ScrollButton";
 
 function Footer() {
   const currentDate = new Date().getFullYear();
@@ -76,12 +83,22 @@ function Footer() {
                   <ul className="list-inline footer-socials mt-4">
                     <li className="list-inline-item">
                       <a href="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
-                        <i className="icofont-facebook"></i>
+                        <FaFacebookF color="white" />
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="https://www.instagram.com/santharpanaspa/">
-                        <i className="icofont-instagram"></i>
+                        <FaInstagram color="white" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
+                        <FaGoogle color="white" />
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
+                        <FaTripadvisor color="white" />
                       </a>
                     </li>
                   </ul>
@@ -103,13 +120,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-lg-4">
-                <a className="backtop js-scroll-trigger" href="#top">
-                  <i className="icofont-long-arrow-up"></i>
-                </a>
-              </div>
-            </div>
+            <ScrollTriggerButton />
           </div>
         </div>
       </footer>

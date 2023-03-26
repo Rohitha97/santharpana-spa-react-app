@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import index from "index.css";
 import { Link } from "react-router-dom";
 import "../../index.css";
+import { MdEmail, MdWrongLocation } from "react-icons/md";
+import { GoGrabber } from "react-icons/go";
 
 function NavBar() {
+  const [showNavLinks, setShowNavLinks] = useState(false);
+
+  const toggleNavLinks = () => {
+    setShowNavLinks(!showNavLinks);
+  };
+
   return (
     <>
       <header>
@@ -14,13 +22,13 @@ function NavBar() {
                 <ul className="top-bar-info list-inline-item pl-0 mb-0">
                   <li className="list-inline-item">
                     <a href="mailto:santharpanaspa@gmail.com">
-                      <i className="icofont-support-faq mr-2"></i>
+                      <MdEmail color="white" size={"20px"} />{" "}
                       santharpanaspa@gmail.com
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <i className="icofont-location-pin mr-2"></i>Address No.43,
-                    Rotaryagama, Inamaluwa - Sigiriya
+                    <MdWrongLocation color="white" size={"15px"} /> Address
+                    No.43, Rotaryagama, Inamaluwa - Sigiriya
                   </li>
                 </ul>
               </div>
@@ -40,7 +48,7 @@ function NavBar() {
           id="navbar"
         >
           <div className="container">
-            <a className="navbar-brand" href="index.html">
+            <a className="navbar-brand" href="/">
               <img
                 src="images/logo.png"
                 alt=""
@@ -48,20 +56,17 @@ function NavBar() {
               />
             </a>
 
-            <button
-              className="navbar-toggler collapsed"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarmain"
-              aria-controls="navbarmain"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="icofont-navigation-menu"></span>
-            </button>
+            <GoGrabber
+              size={40}
+              color="#4b1e3d"
+              onClick={toggleNavLinks}
+              className="d-lg-none"
+            />
 
             <div
-              className="collapse navbar-collapse flex-row-reverse"
+              className={`collapse navbar-collapse flex-row-reverse ${
+                showNavLinks ? "show" : ""
+              }`}
               id="navbarmain"
             >
               <ul className="navbar-nav ml-auto">

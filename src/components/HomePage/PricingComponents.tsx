@@ -1,6 +1,7 @@
 import React from "react";
 import AppoinmentComponents from "./AppoinmentComponents";
 import { Services, servicesCard } from "../../DataModel/ServicesModel";
+import { Link } from "react-router-dom";
 
 function PricingComponents() {
   return (
@@ -19,14 +20,25 @@ function PricingComponents() {
           <div className="row">
             {servicesCard.map((services, index) => (
               <div className="col-lg-4 col-md-6 col-sm-6">
-                <div className="service-item mb-4">
-                  <div className=" d-flex align-items-center">
-                    <h4 className="mt-1 mb-3">{services.name}</h4>
+                <Link
+                  to={{
+                    pathname: "/description",
+                    search: `?name=${encodeURIComponent(
+                      services.name
+                    )}&description=${encodeURIComponent(
+                      services.description
+                    )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
+                  }}
+                >
+                  <div className="service-item mb-4">
+                    <div className="align-items-center">
+                      <h4 className="mt-1 mb-3">{services.name}</h4>
+                    </div>
+                    <div className="content">
+                      <p className="mb-1">{services.timeslot}</p>
+                    </div>
                   </div>
-                  <div className="content">
-                    <p className="mb-1">{services.timeslot}</p>
-                  </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

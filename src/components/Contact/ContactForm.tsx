@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 function ContactForm() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_wfya6jy",
+          "template_nntewfh",
+          form.current,
+          "4Dndd4knu6wytsWdR"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            toast.success(
+              "Your Message has been sent successfully, We will get back to you!"
+            );
+            form.current?.reset();
+          },
+          (error) => {
+            console.log(error.text);
+            toast.error("Something went wrong");
+          }
+        );
+    }
+  };
+
   return (
     <>
       <section className="contact-form-wrap section">
@@ -15,21 +48,8 @@ function ContactForm() {
           </div>
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12">
-              <form
-                action="https://formsubmit.co/santharpanaspa@gmail.com"
-                method="POST"
-              >
-                {/* <div className="row">
-                  <div className="col-12">
-                    <div
-                      className="alert alert-success contact__msg"
-                      role="alert"
-                    >
-                      Your message was sent successfully.
-                    </div>
-                  </div>
-                </div> */}
-
+              <ToastContainer />
+              <form ref={form} onSubmit={sendEmail}>
                 <div className="row">
                   <div className="col-lg-6">
                     <div className="form-group">
@@ -38,7 +58,7 @@ function ContactForm() {
                         id="name"
                         type="text"
                         className="form-control"
-                        placeholder="Your Full Name"
+                        placeholder="Name"
                       />
                     </div>
                   </div>
@@ -50,7 +70,7 @@ function ContactForm() {
                         id="email"
                         type="email"
                         className="form-control"
-                        placeholder="Your Email Address"
+                        placeholder="Email Address"
                       />
                     </div>
                   </div>
@@ -61,7 +81,7 @@ function ContactForm() {
                         id="subject"
                         type="text"
                         className="form-control"
-                        placeholder="Your Query Topic"
+                        placeholder="Query Topic"
                       />
                     </div>
                   </div>
@@ -72,7 +92,7 @@ function ContactForm() {
                         id="phone"
                         type="text"
                         className="form-control"
-                        placeholder="Your Phone Number"
+                        placeholder="Phone Number"
                       />
                     </div>
                   </div>
@@ -83,7 +103,8 @@ function ContactForm() {
                     name="message"
                     id="message"
                     className="form-control"
-                    placeholder="Your Message"
+                    placeholder="Message"
+                    style={{ height: "240px" }}
                   ></textarea>
                 </div>
 

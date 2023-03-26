@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderProps from "../../DataModel/HeaderProps";
+import { HeaderProps } from "../../DataModel/HeaderProps";
 
 function PageHeader({ title, subtitle }: HeaderProps) {
   return (
@@ -11,7 +11,10 @@ function PageHeader({ title, subtitle }: HeaderProps) {
             <div className="col-md-12">
               <div className="block text-center">
                 <span className="text-white">{subtitle}</span>
-                <h1 className="text-capitalize mb-5 text-lg">{title}</h1>
+
+                <h1 className="text-capitalize mb-5 text-lg">
+                  {(title as string) || ""}
+                </h1>
               </div>
             </div>
           </div>
