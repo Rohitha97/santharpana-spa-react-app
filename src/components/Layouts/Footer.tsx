@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaTripadvisor,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import ScrollTriggerButton from "./ScrollButton";
 
 function Footer() {
@@ -62,9 +63,9 @@ function Footer() {
                     <span className="h6 mb-0">Support Available for 24/7</span>
                   </div>
                   <h4 className="mt-2">
-                    <a href="mailto:santharpanaspa@gmail.com">
+                    <Link to="mailto:santharpanaspa@gmail.com">
                       santharpanaspa@gmail.com
-                    </a>
+                    </Link>
                   </h4>
                 </div>
 
@@ -76,30 +77,30 @@ function Footer() {
                     </span>
                   </div>
                   <h4 className="mt-2">
-                    <a href="tel:+94706626139">+94 70 662 6139</a>
+                    <Link to="tel:+94706626139">+94 70 662 6139</Link>
                   </h4>
                 </div>
                 <div className="footer-contact-block">
                   <ul className="list-inline footer-socials mt-4">
                     <li className="list-inline-item">
-                      <a href="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
+                      <Link to="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
                         <FaFacebookF color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://www.instagram.com/santharpanaspa/">
+                      <Link to="https://www.instagram.com/santharpanaspa/">
                         <FaInstagram color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
+                      <Link to="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
                         <FaGoogle color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
+                      <Link to="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
                         <FaTripadvisor color="white" />
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -112,9 +113,9 @@ function Footer() {
               <div className="copyright">
                 &copy; Copyright {currentDate}{" "}
                 <span className="text-color">
-                  <a href="https://www.santharpanaspa.com">
+                  <Link to="https://www.santharpanaspa.com">
                     Santharpana Ayurvedic Garden
-                  </a>{" "}
+                  </Link>{" "}
                   | Developed by Rohitha Rathnayake
                 </span>
               </div>

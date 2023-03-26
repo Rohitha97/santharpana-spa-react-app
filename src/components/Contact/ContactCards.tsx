@@ -4,6 +4,7 @@ import {
   MdSupportAgent,
   MdWrongLocation,
 } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 function contactCards() {
   return (
@@ -22,7 +23,7 @@ function contactCards() {
                   className="mb-3"
                 />
                 <h5>Call Us</h5>
-                <a href="tel:+94706626139">+94 70 662 6139</a>
+                <Link to="tel:+94706626139">+94 70 662 6139</Link>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 col-md-6">
@@ -36,9 +37,9 @@ function contactCards() {
                   className="mb-3"
                 />
                 <h5>Email Us</h5>
-                <a href="mailto:santharpanaspa@gmail.com">
+                <Link to="mailto:santharpanaspa@gmail.com">
                   santharpanaspa@gmail.com
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 col-md-6">
@@ -49,9 +50,9 @@ function contactCards() {
                   className="mb-3"
                 />
                 <h5>Location</h5>
-                <a href="https://goo.gl/maps/AmRn53RPKU83NJRr9">
+                <Link to="https://goo.gl/maps/AmRn53RPKU83NJRr9">
                   No.43, Rotaryagama, Inamaluwa, Sigiriya, Sri Lanka
-                </a>
+                </Link>
               </div>
             </div>
           </div>

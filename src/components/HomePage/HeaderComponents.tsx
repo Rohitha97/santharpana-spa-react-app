@@ -86,24 +86,24 @@ function Header() {
                   <h4 className="mb-3">+94 70 662 6139</h4>
                   <ul className="list-inline footer-socials mt-4">
                     <li className="list-inline-item">
-                      <a href="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
+                      <Link to="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
                         <FaFacebookF color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://www.instagram.com/santharpanaspa/">
+                      <Link to="https://www.instagram.com/santharpanaspa/">
                         <FaInstagram color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
+                      <Link to="https://goo.gl/maps/d8M9YnxJLPCveBNQ9">
                         <FaGoogle color="white" />
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a href="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
+                      <Link to="https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html">
                         <FaTripadvisor color="white" />
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

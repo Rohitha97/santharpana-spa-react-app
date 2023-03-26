@@ -19,7 +19,7 @@ function PricingComponents() {
 
           <div className="row">
             {servicesCard.map((services, index) => (
-              <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="col-lg-4 col-md-6 col-sm-6" key={index}>
                 <Link
                   to={{
                     pathname: "/description",
