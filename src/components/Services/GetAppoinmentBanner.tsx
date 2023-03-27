@@ -16,6 +16,7 @@ function GetAppoinmentBanner() {
                 <Link
                   to="/appoinment"
                   className="btn btn-main-2 btn-round-full"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   Get appoinment<i className="icofont-simple-right  ml-2"></i>
                 </Link>

@@ -151,6 +151,7 @@ function Header() {
                 <Link
                   to="/services"
                   className="btn btn-main-2 btn-round-full btn-icon rounded-5"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   Services<i className="icofont-simple-right ml-3"></i>
                 </Link>

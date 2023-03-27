@@ -33,6 +33,7 @@ function ServicesComponents() {
                         services.description
                       )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
                     }}
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     More About Treatment
                   </Link>

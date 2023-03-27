@@ -20,25 +20,29 @@ function PricingComponents() {
           <div className="row">
             {servicesCard.map((services, index) => (
               <div className="col-lg-4 col-md-6 col-sm-6" key={index}>
-                <Link
-                  to={{
-                    pathname: "/description",
-                    search: `?name=${encodeURIComponent(
-                      services.name
-                    )}&description=${encodeURIComponent(
-                      services.description
-                    )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
-                  }}
-                >
-                  <div className="service-item mb-4">
-                    <div className="align-items-center">
-                      <h4 className="mt-1 mb-3">{services.name}</h4>
-                    </div>
-                    <div className="content">
-                      <p className="mb-1">{services.timeslot}</p>
-                    </div>
+                <div className="service-item mb-4">
+                  <div className="align-items-center">
+                    <h4 className="mt-1 mb-2">{services.name}</h4>
                   </div>
-                </Link>
+                  <div className="content">
+                    <p className="mb-2">{services.timeslot}</p>
+                  </div>
+                  <Link
+                    style={{ width: "240px" }}
+                    className="btn btn-outline-dark btn-round-full rounded-5"
+                    to={{
+                      pathname: "/description",
+                      search: `?name=${encodeURIComponent(
+                        services.name
+                      )}&description=${encodeURIComponent(
+                        services.description
+                      )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
+                    }}
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    More About Treatment
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

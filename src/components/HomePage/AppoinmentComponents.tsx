@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { servicesCard } from "../../DataModel/ServicesModel";
 
 function AppoinmentComponents({}) {
   // const form = useRef();
@@ -61,12 +62,24 @@ function AppoinmentComponents({}) {
                   <div className="row">
                     <div className="col-lg-6 my-2">
                       <div className="form-group">
-                        <input
+                        <select
+                          className="form-control"
+                          name="Service"
+                          aria-label="Select Service"
+                        >
+                          <option selected>Service</option>
+                          {servicesCard.map((services, index) => (
+                            <option value={services.name}>
+                              {services.name}
+                            </option>
+                          ))}
+                        </select>
+                        {/* <input
                           name="Service"
                           type="text"
                           className="form-control"
                           placeholder="Service"
-                        />
+                        /> */}
                       </div>
                     </div>
                     <div className="col-lg-6 my-2">
@@ -84,7 +97,7 @@ function AppoinmentComponents({}) {
                       <div className="form-group">
                         <input
                           name="Time"
-                          type="text"
+                          type="time"
                           className="form-control"
                           placeholder="Time"
                         />
