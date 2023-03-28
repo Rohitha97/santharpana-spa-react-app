@@ -56,7 +56,7 @@ function AppoinmentComponents({}) {
             </div>
             <div className="col-lg-6 col-md-10 ">
               <div className="appoinment-wrap mt-5 mt-lg-0">
-                <h2 className="mb-2 title-color">Book appoinment</h2>
+                <h2 className="mb-2 title-color">Book Appointment</h2>
                 <ToastContainer />
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="row">
@@ -141,7 +141,7 @@ function AppoinmentComponents({}) {
                     type="submit"
                     // onClick={handleClick}
                   >
-                    Make Appoinment<i className="icofont-simple-right ml-2"></i>
+                    Make Appointment<i className="icofont-simple-right ml-2"></i>
                   </button>
                 </form>
               </div>

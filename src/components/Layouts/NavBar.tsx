@@ -82,7 +82,7 @@ function NavBar() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/appoinment">
-                    Appoinment
+                    Appointment
                   </Link>
                 </li>
                 <li className="nav-item">

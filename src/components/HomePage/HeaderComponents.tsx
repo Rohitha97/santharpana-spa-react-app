@@ -33,7 +33,7 @@ function Header() {
                     to="/appoinment"
                     className="btn btn-main-2 btn-icon btn-round-full rounded-5"
                   >
-                    Make appoinment
+                    Make appointment
                     <i className="icofont-simple-right ml-2  "></i>
                   </Link>
                 </div>
@@ -52,7 +52,7 @@ function Header() {
                     <AiOutlineBook color="#4b1e3d" size={"40px"} />
                   </div>
                   <span>24 Hours Service</span>
-                  <h4 className="mb-3">Online Appoinment</h4>
+                  <h4 className="mb-3">Online Appointment</h4>
                   <p className="mb-4">
                     Sometimes the best thing to do is just call it a day and go
                     get a massage.
@@ -61,7 +61,7 @@ function Header() {
                     to="/appoinment"
                     className="btn btn-main btn-round-full rounded-5"
                   >
-                    Make a appoinment
+                    Make a appointment
                   </Link>
                 </div>
 
