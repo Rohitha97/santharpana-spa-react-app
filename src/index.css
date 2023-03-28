@@ -250,6 +250,10 @@ input[type="tel"]:focus {
   position: relative;
 }
 
+.banner-p {
+  color: honeydew;
+}
+
 .overly-2:before {
   content: "";
   position: absolute;

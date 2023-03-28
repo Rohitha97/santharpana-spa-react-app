@@ -24,7 +24,7 @@ function Header() {
                 </span>
                 <h1 className="mb-3 mt-3">Your most trusted Ayurvedic Spa </h1>
 
-                <p className="mb-4 pr-5">
+                <p className="mb-4 pr-5 banner-p">
                   It’s not selfish to love yourself, take care of yourself, and
                   to make your happiness a priority. It’s necessary.{" "}
                 </p>

@@ -85,10 +85,22 @@ function AppoinmentComponents({}) {
                     <div className="col-lg-6 my-2">
                       <div className="form-group">
                         <input
+                          name="email"
+                          type="email"
+                          className="form-control"
+                          placeholder="Email"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-6 my-2">
+                      <div className="form-group">
+                        <input
                           name="Date"
                           type="date"
                           className="form-control"
                           placeholder="dd/mm/yyyy"
+                          required
                         />
                       </div>
                     </div>
@@ -100,10 +112,11 @@ function AppoinmentComponents({}) {
                           type="time"
                           className="form-control"
                           placeholder="Time"
+                          required
                         />
                       </div>
                     </div>
-                    <div className="col-lg-6 my-2">
+                    {/* <div className="col-lg-6 my-2">
                       <div className="form-group">
                         <input
                           name="Name"
@@ -112,36 +125,15 @@ function AppoinmentComponents({}) {
                           placeholder="Name"
                         />
                       </div>
-                    </div>
-
-                    <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <input
-                          name="email"
-                          type="email"
-                          className="form-control"
-                          placeholder="Email"
-                        />
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
-                  <div className="form-group-2 my-2">
-                    <textarea
-                      name="Message"
-                      className="form-control"
-                      placeholder="Your Message"
-                      style={{ height: "210px" }}
-                    ></textarea>
-                  </div>
-
-                  <input type="hidden" name="_template" value="box" />
-                  <input type="hidden" name="_captcha" value="false" />
                   <button
                     className="btn btn-main btn-round-full rounded-5"
                     type="submit"
                     // onClick={handleClick}
                   >
-                    Make Appointment<i className="icofont-simple-right ml-2"></i>
+                    Make Appointment
+                    <i className="icofont-simple-right ml-2"></i>
                   </button>
                 </form>
               </div>
