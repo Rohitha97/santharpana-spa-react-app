@@ -517,7 +517,7 @@ a:focus {
   .banner .block h1 {
     font-size: 38px;
     line-height: 50px;
-    color: #4b1e3d;
+    color: antiquewhite;
   }
   .banner {
     min-height: 450px;
@@ -529,7 +529,7 @@ a:focus {
   .banner .block h1 {
     font-size: 28px;
     line-height: 40px;
-    color: #4b1e3d;
+    color: antiquewhite;
   }
   .banner {
     min-height: 450px;
@@ -551,7 +551,7 @@ a:focus {
   .banner .block h1 {
     font-size: 28px;
     line-height: 40px;
-    color: #4b1e3d;
+    color: antiquewhite;
   }
   .banner {
     background: #fff;

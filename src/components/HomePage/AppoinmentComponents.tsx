@@ -67,7 +67,7 @@ function AppoinmentComponents({}) {
                           name="Service"
                           aria-label="Select Service"
                         >
-                          <option selected>Service</option>
+                          <option selected>Select Service</option>
                           {servicesCard.map((services, index) => (
                             <option value={services.name}>
                               {services.name}
