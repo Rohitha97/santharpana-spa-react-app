@@ -36,7 +36,9 @@ function PricingComponents() {
                         services.name
                       )}&description=${encodeURIComponent(
                         services.description
-                      )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
+                      )}&imgSrc=${encodeURIComponent(
+                        services.imgSrc
+                      )}&price=${encodeURIComponent(services.price)}`,
                     }}
                     onClick={() => window.scrollTo(0, 0)}
                   >

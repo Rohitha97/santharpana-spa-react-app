@@ -8,6 +8,7 @@ function Description(props: any) {
   const name = searchParams.get("name");
   const description = searchParams.get("description");
   const imgSrc = searchParams.get("imgSrc");
+  const price = searchParams.get("price");
   const paragraphs = description?.split("\n");
 
   return (
@@ -29,6 +30,7 @@ function Description(props: any) {
                       {paragraph}
                     </p>
                   ))}
+                <h5>Price : {price}</h5>
               </div>
             </div>
           </div>

@@ -1,9 +1,5 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Services, servicesCard } from "../../DataModel/ServicesModel";
-import Button from "react-bootstrap/Button";
-import DescriptionModal from "./Description";
-import { Modal } from "react-bootstrap";
+import { servicesCard } from "../../DataModel/ServicesModel";
 
 function ServicesComponents() {
   return (
@@ -31,7 +27,9 @@ function ServicesComponents() {
                         services.name
                       )}&description=${encodeURIComponent(
                         services.description
-                      )}&imgSrc=${encodeURIComponent(services.imgSrc)}`,
+                      )}&imgSrc=${encodeURIComponent(
+                        services.imgSrc
+                      )}&price=${encodeURIComponent(services.price)}`,
                     }}
                     onClick={() => window.scrollTo(0, 0)}
                   >
