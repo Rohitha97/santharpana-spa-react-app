@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.10.0",
+    "@emailjs/browser": "^3.11.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.3",
     "emailjs": "^4.0.1",
