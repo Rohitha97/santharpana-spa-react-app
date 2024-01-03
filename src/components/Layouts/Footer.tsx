@@ -116,7 +116,7 @@ function Footer() {
                   <Link to="https://www.santharpanaspa.com">
                     Santharpana Ayurvedic Garden
                   </Link>{" "}
-                  | Developed by Rohitha Rathnayake
+                  | Developed by <Link to="https://rohitha.me/">Rohitha Rathnayake</Link>
                 </span>
               </div>
             </div>
