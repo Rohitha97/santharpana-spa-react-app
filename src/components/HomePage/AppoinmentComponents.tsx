@@ -16,7 +16,7 @@ function AppoinmentComponents({}) {
       emailjs
         .sendForm(
           "service_wfya6jy",
-          "template_8lkyhas",
+          "template_qwwrktr",
           form.current,
           "4Dndd4knu6wytsWdR"
         )
