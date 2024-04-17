@@ -13,7 +13,7 @@ function AppoinmentComponents({}) {
     e.preventDefault();
 
     if (form.current) {
-      emailjs.sendForm("service_wfya6jy", "template_8lkyhas", form.current, "4Dndd4knu6wytsWdR").then(
+      emailjs.sendForm("service_wfya6jy", "template_qwwrktr", form.current, "4Dndd4knu6wytsWdR").then(
         (result) => {
           console.log(result.text);
           toast.success("Your booking has been sent successfully");
