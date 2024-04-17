@@ -13,24 +13,17 @@ function AppoinmentComponents({}) {
     e.preventDefault();
 
     if (form.current) {
-      emailjs
-        .sendForm(
-          "service_wfya6jy",
-          "template_8lkyhas",
-          form.current,
-          "4Dndd4knu6wytsWdR"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            toast.success("Your booking has been sent successfully");
-            form.current?.reset();
-          },
-          (error) => {
-            console.log(error.text);
-            toast.error("Something went wrong");
-          }
-        );
+      emailjs.sendForm("service_wfya6jy", "template_8lkyhas", form.current, "4Dndd4knu6wytsWdR").then(
+        (result) => {
+          console.log(result.text);
+          toast.success("Your booking has been sent successfully");
+          form.current?.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          toast.error("Something went wrong");
+        }
+      );
     }
   };
 
@@ -41,23 +34,25 @@ function AppoinmentComponents({}) {
           <div className="row align-items-center">
             <div className="col-lg-6 ">
               <div className="appoinment-content">
-                <img
-                  src="images/about/img-3.jpg"
-                  alt=""
-                  className="img-fluid"
-                />
+                <img src="images/about/img-3.jpg" alt="" className="img-fluid" />
                 <div className="emergency">
                   <h2 className="text-lg">
-                    <i className="icofont-phone-circle text-lg"></i>+94
-                    706626139
+                    <i className="icofont-phone-circle text-lg"></i>+94 762436139
                   </h2>
                 </div>
               </div>
             </div>
             <div className="col-lg-6 col-md-10 ">
               <div className="appoinment-wrap mt-5 mt-lg-0">
-                <h2 className="mb-2 title-color">Book Appointment</h2>
-                <ToastContainer />
+                <h2 className="mb-2 title-color">Book Appointment via WhatsApp</h2>
+                <p className="mb-4">Please provide the service name and date to book an appointment. We will get back to you as soon as possible.</p>
+                <div className="mb-4">
+                  <a className="btn btn-main btn-round-full rounded-5" aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
+                    Chat on WhatsApp
+                  </a>
+                </div>
+
+                {/* <ToastContainer />
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="row">
                     <div className="col-lg-6 my-2">
@@ -79,7 +74,7 @@ function AppoinmentComponents({}) {
                           type="text"
                           className="form-control"
                           placeholder="Service"
-                        /> */}
+                        /> 
                       </div>
                     </div>
                     <div className="col-lg-6 my-2">
@@ -125,7 +120,7 @@ function AppoinmentComponents({}) {
                           placeholder="Name"
                         />
                       </div>
-                    </div> */}
+                    </div> 
                   </div>
                   <button
                     className="btn btn-main btn-round-full rounded-5"
@@ -135,7 +130,7 @@ function AppoinmentComponents({}) {
                     Make Appointment
                     <i className="icofont-simple-right ml-2"></i>
                   </button>
-                </form>
+                </form> */}
               </div>
             </div>
           </div>

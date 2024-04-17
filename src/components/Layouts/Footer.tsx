@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaGoogle,
-  FaInstagram,
-  FaTripadvisor,
-} from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ScrollTriggerButton from "./ScrollButton";
 
@@ -63,25 +58,26 @@ function Footer() {
                     <span className="h6 mb-0">Support Available for 24/7</span>
                   </div>
                   <h4 className="mt-2">
-                    <Link to="mailto:santharpanaspa@gmail.com">
-                      santharpanaspa@gmail.com
-                    </Link>
+                    <Link to="mailto:santharpanaspa@gmail.com">santharpanaspa@gmail.com</Link>
                   </h4>
                 </div>
 
                 <div className="footer-contact-block">
                   <div className="icon d-flex align-items-center">
                     <i className="icofont-support mr-3"></i>
-                    <span className="h6 mb-0">
-                      Mon to Sunday : 09:00 - 21:00
-                    </span>
+                    <span className="h6 mb-0">Mon to Sunday : 09:00 - 21:00</span>
                   </div>
                   <h4 className="mt-2">
-                    <Link to="tel:+94706626139">+94 70 662 6139</Link>
+                    <Link to="https://wa.me/+94762436139">+94 76 243 6139</Link>
                   </h4>
                 </div>
                 <div className="footer-contact-block">
                   <ul className="list-inline footer-socials mt-4">
+                    <li className="list-inline-item">
+                      <Link to="https://wa.me/+94762436139">
+                        <FaWhatsapp color="white" />
+                      </Link>
+                    </li>
                     <li className="list-inline-item">
                       <Link to="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
                         <FaFacebookF color="white" />
@@ -113,10 +109,7 @@ function Footer() {
               <div className="copyright">
                 &copy; Copyright {currentDate}{" "}
                 <span className="text-color">
-                  <Link to="https://www.santharpanaspa.com">
-                    Santharpana Ayurvedic Garden
-                  </Link>{" "}
-                  | Developed by Rohitha Rathnayake
+                  <Link to="https://www.santharpanaspa.com">Santharpana Ayurvedic Garden</Link> | Developed by Rohitha Rathnayake
                 </span>
               </div>
             </div>

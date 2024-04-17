@@ -20,31 +20,27 @@ function PricingComponents() {
           <div className="row">
             {servicesCard.map((services, index) => (
               <div className="col-lg-4 col-md-6 col-sm-6" key={index}>
-                <div className="service-item mb-4">
-                  <div className="align-items-center">
-                    <h4 className="mt-1 mb-2">{services.name}</h4>
+                <Link
+                  to={{
+                    pathname: "/description",
+                    search: `?name=${encodeURIComponent(services.name)}&description=${encodeURIComponent(services.description)}&imgSrc=${encodeURIComponent(
+                      services.imgSrc
+                    )}&price=${encodeURIComponent(services.price)}`,
+                  }}
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  <div className="service-item mb-4">
+                    <div className="align-items-center">
+                      <h4 className="mt-1 mb-2">{services.name}</h4>
+                    </div>
+                    <div className="content">
+                      <p className="mb-2">{services.timeslot}</p>
+                    </div>
+                    <div className="service-price">
+                      <h4 className="price">{services.price}</h4>
+                    </div>
                   </div>
-                  <div className="content">
-                    <p className="mb-2">{services.timeslot}</p>
-                  </div>
-                  <Link
-                    style={{ width: "240px" }}
-                    className="btn btn-outline-dark btn-round-full rounded-5"
-                    to={{
-                      pathname: "/description",
-                      search: `?name=${encodeURIComponent(
-                        services.name
-                      )}&description=${encodeURIComponent(
-                        services.description
-                      )}&imgSrc=${encodeURIComponent(
-                        services.imgSrc
-                      )}&price=${encodeURIComponent(services.price)}`,
-                    }}
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                    More About Treatment
-                  </Link>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

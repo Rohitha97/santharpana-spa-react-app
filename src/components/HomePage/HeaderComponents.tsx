@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import PricingComponents from "./PricingComponents";
 import { AiOutlineBook, AiOutlineClockCircle } from "react-icons/ai";
 import { MdSupportAgent } from "react-icons/md";
-import {
-  FaFacebookF,
-  FaGoogle,
-  FaInstagram,
-  FaTripadvisor,
-} from "react-icons/fa";
+import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";
 
 function Header() {
   return (
@@ -19,20 +14,12 @@ function Header() {
             <div className="col-lg-6 col-md-12 col-xl-7">
               <div className="block">
                 <div className="divider mb-3"></div>
-                <span className="text-uppercase text-sm letter-spacing ">
-                  Keep calm and make a self-care plan
-                </span>
+                <span className="text-uppercase text-sm letter-spacing ">Keep calm and make a self-care plan</span>
                 <h1 className="mb-3 mt-3">Your most trusted Ayurvedic Spa </h1>
 
-                <p className="mb-4 pr-5 banner-p">
-                  It’s not selfish to love yourself, take care of yourself, and
-                  to make your happiness a priority. It’s necessary.{" "}
-                </p>
+                <p className="mb-4 pr-5 banner-p">It’s not selfish to love yourself, take care of yourself, and to make your happiness a priority. It’s necessary. </p>
                 <div className="btn-container ">
-                  <Link
-                    to="/appoinment"
-                    className="btn btn-main-2 btn-icon btn-round-full rounded-5"
-                  >
+                  <Link to="/appoinment" className="btn btn-main-2 btn-icon btn-round-full rounded-5">
                     Make appointment
                     <i className="icofont-simple-right ml-2  "></i>
                   </Link>
@@ -53,14 +40,8 @@ function Header() {
                   </div>
                   <span>24 Hours Service</span>
                   <h4 className="mb-3">Online Appointment</h4>
-                  <p className="mb-4">
-                    Sometimes the best thing to do is just call it a day and go
-                    get a massage.
-                  </p>
-                  <Link
-                    to="/appoinment"
-                    className="btn btn-main btn-round-full rounded-5"
-                  >
+                  <p className="mb-4">Sometimes the best thing to do is just call it a day and go get a massage.</p>
+                  <Link to="/appoinment" className="btn btn-main btn-round-full rounded-5">
                     Make a appointment
                   </Link>
                 </div>
@@ -83,8 +64,13 @@ function Header() {
                     <MdSupportAgent color="#4b1e3d" size={"40px"} />
                   </div>
                   <span>Contact</span>
-                  <h4 className="mb-3">+94 70 662 6139</h4>
+                  <h4 className="mb-3">+94 76 243 6139</h4>
                   <ul className="list-inline footer-socials mt-4">
+                    <li className="list-inline-item">
+                      <Link to="https://wa.me/+94762436139">
+                        <FaWhatsapp color="white" />
+                      </Link>
+                    </li>
                     <li className="list-inline-item">
                       <Link to="https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/">
                         <FaFacebookF color="white" />
@@ -117,25 +103,13 @@ function Header() {
           <div className="row align-items-center">
             <div className="col-lg-4 col-sm-6">
               <div className="about-img">
-                <img
-                  src="images/about/img-1.jpg"
-                  alt=""
-                  className="img-fluid"
-                />
-                <img
-                  src="images/about/img-2.jpg"
-                  alt=""
-                  className="img-fluid mt-4"
-                />
+                <img src="images/about/img-1.jpg" alt="" className="img-fluid" />
+                <img src="images/about/img-2.jpg" alt="" className="img-fluid mt-4" />
               </div>
             </div>
             <div className="col-lg-4 col-sm-6">
               <div className="about-img mt-4 mt-lg-0">
-                <img
-                  src="images/about/img-3.jpg"
-                  alt=""
-                  className="img-fluid"
-                />
+                <img src="images/about/img-3.jpg" alt="" className="img-fluid" />
               </div>
             </div>
             <div className="col-lg-4">
@@ -143,16 +117,9 @@ function Header() {
                 <h2 className="title-color">
                   Personal care <br />& healthy living
                 </h2>
-                <p className="mt-4 mb-5">
-                  Rest and your energy will be restored. We provide best leading
-                  Spa services.
-                </p>
+                <p className="mt-4 mb-5">Rest and your energy will be restored. We provide best leading Spa services.</p>
 
-                <Link
-                  to="/services"
-                  className="btn btn-main-2 btn-round-full btn-icon rounded-5"
-                  onClick={() => window.scrollTo(0, 0)}
-                >
+                <Link to="/services" className="btn btn-main-2 btn-round-full btn-icon rounded-5" onClick={() => window.scrollTo(0, 0)}>
                   Services<i className="icofont-simple-right ml-3"></i>
                 </Link>
               </div>
