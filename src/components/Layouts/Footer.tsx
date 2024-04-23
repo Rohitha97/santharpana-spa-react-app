@@ -109,7 +109,7 @@ function Footer() {
               <div className="copyright">
                 &copy; Copyright {currentDate}{" "}
                 <span className="text-color">
-                  <Link to="https://www.santharpanaspa.com">Santharpana Ayurvedic Garden</Link> | Developed by <Link to="https://rohitha.me/">Rohitha Rathnayake</Link>
+                  <Link to="https://www.santharpanaspa.com">Rangiri Ayurveda Ashram (Santharpana)</Link> | Developed by <Link to="https://rohitha.me/">Rohitha Rathnayake</Link>
                 </span>
               </div>
             </div>
