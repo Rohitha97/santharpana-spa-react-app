@@ -1,6 +1,6 @@
-# Rangiri Ayurveda Ashram (Santharpana)
+# Santharpana Ayurveda Ashram
 
-This is a web application developed using React for Rangiri Ayurveda Ashram (Santharpana), which offers various services related to ayurvedic treatments and spa services. The website provides detailed information about the services offered, pricing, and facilities available at the spa. It also allows customers to book appointments through the website.
+This is a web application developed using React for Santharpana Ayurveda Ashram, which offers various services related to ayurvedic treatments and spa services. The website provides detailed information about the services offered, pricing, and facilities available at the spa. It also allows customers to book appointments through the website.
 
 ## Features
 
