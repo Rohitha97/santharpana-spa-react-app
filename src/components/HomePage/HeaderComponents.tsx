@@ -19,10 +19,9 @@ function Header() {
 
                 <p className="mb-4 pr-5 banner-p">It’s not selfish to love yourself, take care of yourself, and to make your happiness a priority. It’s necessary. </p>
                 <div className="btn-container ">
-                  <Link to="/appoinment" className="btn btn-main-2 btn-icon btn-round-full rounded-5">
-                    Make appointment
-                    <i className="icofont-simple-right ml-2  "></i>
-                  </Link>
+                  <a className="btn btn-main-2 btn-icon btn-round-full rounded-5" aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
+                    Make a appointment
+                  </a>
                 </div>
               </div>
             </div>
@@ -41,9 +40,9 @@ function Header() {
                   <span>24 Hours Service</span>
                   <h4 className="mb-3">Online Appointment</h4>
                   <p className="mb-4">Sometimes the best thing to do is just call it a day and go get a massage.</p>
-                  <Link to="/appoinment" className="btn btn-main btn-round-full rounded-5">
+                  <a aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139" className="btn btn-main btn-round-full rounded-5">
                     Make a appointment
-                  </Link>
+                  </a>
                 </div>
 
                 <div className="feature-item mb-5 mb-lg-0">
