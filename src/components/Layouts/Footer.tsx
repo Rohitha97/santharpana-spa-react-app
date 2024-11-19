@@ -58,7 +58,7 @@ function Footer() {
                     <span className="h6 mb-0">Support Available for 24/7</span>
                   </div>
                   <h4 className="mt-2">
-                    <Link to="mailto:santharpanaspa@gmail.com">santharpanaspa@gmail.com</Link>
+                    <Link to="mailto:gaminianilkumara@gmail.com">gaminianilkumara@gmail.com</Link>
                   </h4>
                 </div>
 

@@ -19,7 +19,7 @@ function contactCards() {
               <div className="contact-block mb-4 mb-lg-0" style={{ paddingBottom: "74px" }}>
                 <MdAlternateEmail color="#4b1e3d" size={"40px"} className="mb-3" />
                 <h5>Email Us</h5>
-                <Link to="mailto:santharpanaspa@gmail.com">santharpanaspa@gmail.com</Link>
+                <Link to="mailto:gaminianilkumara@gmail.com">gaminianilkumara@gmail.com</Link>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 col-md-6">

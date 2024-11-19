@@ -21,8 +21,8 @@ function NavBar() {
               <div className="col-lg-8">
                 <ul className="top-bar-info list-inline-item pl-0 mb-0">
                   <li className="list-inline-item">
-                    <a href="mailto:santharpanaspa@gmail.com">
-                      <MdEmail color="white" size={"20px"} /> santharpanaspa@gmail.com
+                    <a href="mailto:gaminianilkumara@gmail.com">
+                      <MdEmail color="white" size={"20px"} /> gaminianilkumara@gmail.com
                     </a>
                   </li>
                   <li className="list-inline-item">
