@@ -14,13 +14,12 @@ function Header() {
             <div className="col-lg-6 col-md-12 col-xl-7">
               <div className="block">
                 <div className="divider mb-3"></div>
-                <span className="text-uppercase text-sm letter-spacing ">Keep calm and make a self-care plan</span>
-                <h1 className="mb-3 mt-3">Your most trusted Ayurvedic Spa </h1>
-
-                <p className="mb-4 pr-5 banner-p">It’s not selfish to love yourself, take care of yourself, and to make your happiness a priority. It’s necessary. </p>
-                <div className="btn-container ">
+                <span className="text-uppercase text-sm letter-spacing">Keep calm and make a self-care plan</span>
+                <h1 className="mb-3 mt-3">Your most trusted Ayurvedic Spa</h1>
+                <p className="mb-4 pr-5 banner-p">It’s not selfish to love yourself, take care of yourself, and to make your happiness a priority. It’s necessary.</p>
+                <div className="btn-container">
                   <a className="btn btn-main-2 btn-icon btn-round-full rounded-5" aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
-                    Make a appointment
+                    Make an appointment
                   </a>
                 </div>
               </div>
@@ -100,27 +99,24 @@ function Header() {
       <section className="section about">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-4 col-sm-6">
-              <div className="about-img">
-                <img src="images/about/img-1.jpg" alt="" className="img-fluid" />
-                <img src="images/about/img-2.jpg" alt="" className="img-fluid mt-4" />
+            <div className="about-images d-flex flex-wrap">
+              <div className="about-img col-4 p-2">
+                <img src="images/about/img-1.jpg" alt="" className="img-fluid mt-2" />
+                <img src="images/about/img-2.jpg" alt="" className="img-fluid mt-2" />
               </div>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <div className="about-img mt-4 mt-lg-0">
+              <div className="about-img col-4 p-2">
                 <img src="images/about/img-3.jpg" alt="" className="img-fluid" />
               </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="about-content pl-4 mt-4 mt-lg-0">
-                <h2 className="title-color">
-                  Personal care <br />& healthy living
-                </h2>
-                <p className="mt-4 mb-5">Rest and your energy will be restored. We provide best leading Spa services.</p>
-
-                <Link to="/services" className="btn btn-main-2 btn-round-full btn-icon rounded-5" onClick={() => window.scrollTo(0, 0)}>
-                  Services<i className="icofont-simple-right ml-3"></i>
-                </Link>
+              <div className="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+                <div className="about-content mt-4">
+                  <h2 className="title-color">
+                    Personal care <br />& healthy living
+                  </h2>
+                  <p className="mt-4 mb-5">Rest and your energy will be restored. We provide best leading Spa services.</p>
+                  <Link to="/services" className="btn btn-main-2 btn-round-full btn-icon rounded-5" onClick={() => window.scrollTo(0, 0)}>
+                    Services
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

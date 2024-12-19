@@ -18,7 +18,8 @@ function NavBar() {
         <div className="header-top-bar">
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-lg-8">
+              {/* Hide on mobile, show on large screens and above */}
+              <div className="col-lg-8 d-none d-lg-block">
                 <ul className="top-bar-info list-inline-item pl-0 mb-0">
                   <li className="list-inline-item">
                     <a href="mailto:gaminianilkumara@gmail.com">
@@ -34,7 +35,10 @@ function NavBar() {
                 <div className="text-lg-right top-right-bar mt-2 mt-lg-0">
                   <a aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
                     <span>Chat on WhatsApp : </span>
-                    <span className="h4">+94 76 243 6139</span>
+                    {/* This will show on medium (md) and larger devices */}
+                    <span className="h4 d-none d-md-inline">+94 76 243 6139</span>
+                    {/* This will show on smaller devices (below md) */}
+                    <span className="h6 d-inline d-md-none">+94 76 243 6139</span>
                   </a>
                 </div>
               </div>

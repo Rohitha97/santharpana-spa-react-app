@@ -1,0 +1,37 @@
+/* Decrease the font size on smaller screens */
+
+/* Base font size adjustments */
+.responsive-text {
+  font-size: 1rem; /* default font size for larger screens */
+}
+
+.responsive-title h2 {
+  font-size: 2rem; /* example larger screen title size */
+}
+
+/* For smaller devices, reduce the font size */
+@media (max-width: 576px) {
+  .responsive-text {
+    font-size: 0.9rem; /* slightly smaller text on very small screens */
+  }
+
+  .responsive-title h2 {
+    font-size: 1.5rem;
+  }
+  .responsive-card {
+    padding: 10px !important;
+  }
+}
+
+/* For even smaller screens (if needed) */
+@media (max-width: 400px) {
+  .responsive-text {
+    font-size: 0.8rem; /* even smaller text on very small screens */
+  }
+
+  .responsive-title h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Optional: Adjust spacing or other styling for cards on small screens */

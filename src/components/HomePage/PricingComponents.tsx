@@ -2,6 +2,7 @@ import React from "react";
 import AppoinmentComponents from "./AppoinmentComponents";
 import { Services, servicesCard } from "../../DataModel/ServicesModel";
 import { Link } from "react-router-dom";
+import "./PricingComponents.css";
 
 function PricingComponents() {
   return (
@@ -10,7 +11,9 @@ function PricingComponents() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-7 text-center">
-              <div className="section-title">
+              <div className="section-title responsive-title">
+                {" "}
+                {/* Add a class here */}
                 <h2>Special Pricing</h2>
                 <div className="divider mx-auto my-4"></div>
               </div>
@@ -18,26 +21,28 @@ function PricingComponents() {
           </div>
 
           <div className="row">
-            {servicesCard.map((services, index) => (
-              <div className="col-lg-4 col-md-6 col-sm-6" key={index}>
+            {servicesCard.map((service, index) => (
+              <div className="col-6 col-sm-6 col-md-6 col-lg-4" key={index}>
                 <Link
                   to={{
                     pathname: "/description",
-                    search: `?name=${encodeURIComponent(services.name)}&description=${encodeURIComponent(services.description)}&imgSrc=${encodeURIComponent(
-                      services.imgSrc
-                    )}&price=${encodeURIComponent(services.price)}`,
+                    search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}&price=${encodeURIComponent(
+                      service.price
+                    )}`,
                   }}
                   onClick={() => window.scrollTo(0, 0)}
                 >
-                  <div className="service-item mb-4">
+                  <div className="service-item mb-4 responsive-card">
+                    {" "}
+                    {/* Add a class here */}
                     <div className="align-items-center">
-                      <h4 className="mt-1 mb-2">{services.name}</h4>
+                      <h4 className="mt-1 mb-2 responsive-text">{service.name}</h4> {/* Add a class here */}
                     </div>
                     <div className="content">
-                      <p className="mb-2">{services.timeslot}</p>
+                      <p className="mb-2 responsive-text">{service.timeslot}</p> {/* Add a class here */}
                     </div>
                     <div className="service-price">
-                      <h4 className="price">{services.price}</h4>
+                      <h4 className="price responsive-text">{service.price}</h4> {/* Add a class here */}
                     </div>
                   </div>
                 </Link>
