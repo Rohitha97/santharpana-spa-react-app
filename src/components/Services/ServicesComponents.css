@@ -1,0 +1,35 @@
+/* ServicesComponents.css */
+
+/* Default image height for screens above 576px */
+.image-responsive {
+  height: 240px; /* Adjust as needed */
+  object-fit: cover; /* Ensures the image scales nicely */
+}
+
+.title-mobile {
+  /* Example: h4 font-size. You can match Bootstrap's h4, 
+     or set your own default. */
+  font-size: 1.5rem; /* ~24px */
+}
+
+.link-mobile {
+  /* Your default Link font size can be larger for desktop, e.g. 14px */
+  font-size: 0.875rem; /* ~14px */
+}
+
+/* When screen width is below 576px (Bootstrap’s XS breakpoint) */
+@media (max-width: 576px) {
+  .image-responsive {
+    height: 100px !important;
+  }
+
+  .title-mobile {
+    font-size: 1rem; /* ~16px or something closer to h6 (12–16px) */
+  }
+
+  /* Link font-size = 10px on mobile */
+  .link-mobile {
+    font-size: 10px !important;
+    padding: 2px 3px !important;
+  }
+}

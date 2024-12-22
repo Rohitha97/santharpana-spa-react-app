@@ -10,6 +10,7 @@ function Footer() {
       <footer className="footer section gray-bg">
         <div className="container">
           <div className="row">
+            {/* Logo Column */}
             <div className="col-lg-4 mr-auto col-sm-6">
               <div className="widget mb-5 mb-lg-0">
                 <div className="logo mb-4">
@@ -17,36 +18,26 @@ function Footer() {
                 </div>
               </div>
             </div>
+
+            {/* Google Map Column (replaces Working Hours) */}
             <div className="col-lg-4 col-md-8 col-sm-6 mt-4 pl-lg-5 pl-sm-5">
               <div className="widget widget-contact mb-5 mb-lg-0">
-                <h4 className="mb-3">Working Hours</h4>
+                <h4 className="mb-3">Our Location</h4>
                 <div className="divider mb-4"></div>
-                <ul className="w-hours list-unstyled">
-                  <li className="d-flex justify-content-between">
-                    Monday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Tuesday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Wednesday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Thursday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Friday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Saturday<span>9:00 - 21:00</span>
-                  </li>
-                  <li className="d-flex justify-content-between">
-                    Sunday <span>9:00 - 21:00</span>
-                  </li>
-                </ul>
+                <div style={{ width: "100%", height: "auto", overflow: "hidden" }}>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.738853107973!2d80.68895937500635!3d7.922322592101289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afca5579088964d%3A0x93dec67d5bb03db1!2sSantharpana%20Ayurveda%20Ashram%2C%20Ayurvedic%20massage.!5e0!3m2!1sen!2sjp!4v1734852297473!5m2!1sen!2sjp"
+                    width="100%"
+                    height="290"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </div>
 
+            {/* Contact & Socials Column */}
             <div className="col-lg-4 col-md-8 col-sm-6 mt-4 pl-lg-5 pl-sm-5">
               <div className="widget widget-contact mb-5 mb-lg-0">
                 <h4 className="text-capitalize mb-3">Get in Touch</h4>
@@ -109,11 +100,11 @@ function Footer() {
               <div className="copyright">
                 &copy; Copyright {currentDate}{" "}
                 <span className="text-color">
-                  <Link to="https://www.santharpanaspa.com">Santharpana Ayurveda Ashram</Link> | Developed by <Link to="https://rohitha.me/">Rohitha Rathnayake</Link>
+                  <Link to="https://www.santharpanaspa.com">Santharpana Ayurveda Ashram</Link>
+                  {" | "}Developed by <Link to="https://rohitha-grvok0t2d-rohitha97s-projects.vercel.app/">Rohitha Rathnayake</Link>
                 </span>
               </div>
             </div>
-
             <ScrollTriggerButton />
           </div>
         </div>

@@ -18,8 +18,8 @@ function Description(props: any) {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-4 col-sm-6">
-              <div className="about-img mt-4 mt-lg-0">
-                <img src={imgSrc ?? undefined} className="img-fluid" />
+              <div className=" mt-4 mt-lg-0">
+                <img src={imgSrc ?? undefined} className="img-fluid rounded-3" />
               </div>
             </div>
             <div className="col-lg-7">

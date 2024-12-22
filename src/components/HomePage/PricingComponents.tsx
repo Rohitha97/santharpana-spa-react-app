@@ -20,7 +20,7 @@ function PricingComponents() {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row justify-content-center">
             {servicesCard.map((service, index) => (
               <div className="col-6 col-sm-6 col-md-6 col-lg-4" key={index}>
                 <Link
