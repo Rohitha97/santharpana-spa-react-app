@@ -16,7 +16,7 @@ function Header() {
                 <div className="divider mb-3"></div>
                 <span className="text-uppercase text-sm letter-spacing">Keep calm and make a self-care plan</span>
                 <h1 className="mb-3 mt-3">Your most trusted Ayurvedic Spa</h1>
-                <p className="mb-4 pr-5 banner-p">Authentic Ayurvedic Massage specializes in holistic body healing and mental relaxation.</p>
+                <p className="mb-4 pr-5 banner-p">The Authentic Ayurvedic Massage specializes in holistic body healing and mental relaxation.</p>
                 <div className="btn-container">
                   <a className="btn btn-main-2 btn-icon btn-round-full rounded-5" aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
                     Make an appointment
