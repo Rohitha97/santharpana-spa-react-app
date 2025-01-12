@@ -26,9 +26,7 @@ function PricingComponents() {
                 <Link
                   to={{
                     pathname: "/description",
-                    search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}&price=${encodeURIComponent(
-                      service.price
-                    )}`,
+                    search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}`,
                   }}
                   onClick={() => window.scrollTo(0, 0)}
                 >
@@ -41,9 +39,9 @@ function PricingComponents() {
                     <div className="content">
                       <p className="mb-2 responsive-text">{service.timeslot}</p> {/* Add a class here */}
                     </div>
-                    <div className="service-price">
-                      <h4 className="price responsive-text">{service.price}</h4> {/* Add a class here */}
-                    </div>
+                    {/* <div className="service-price">
+                      <h4 className="price responsive-text">{service.price}</h4> 
+                    </div> */}
                   </div>
                 </Link>
               </div>

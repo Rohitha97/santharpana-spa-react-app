@@ -32,9 +32,9 @@ function AppoinmentComponents({}) {
       <section className="section appoinment">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 ">
+            <div className="col-lg-5 ">
               <div className="appoinment-content">
-                <img src="images/about/img-3.jpg" alt="" className="img-fluid" />
+                <img src="images/about/img-3.webp" alt="" className="img-fluid" />
                 <div className="emergency">
                   <h2 className="text-lg">
                     <i className="icofont-phone-circle text-lg"></i>+94 762436139

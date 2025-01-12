@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import index from "index.css";
 import { Link } from "react-router-dom";
 import "../../index.css";
 import { MdEmail, MdWrongLocation } from "react-icons/md";
@@ -27,7 +26,9 @@ function NavBar() {
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <MdWrongLocation color="white" size={"15px"} /> Address No.43, Rotaryagama, Inamaluwa - Sigiriya
+                    <a aria-label="Address" href="https://maps.app.goo.gl/agdzNa4x1hKDppHg9">
+                      <MdWrongLocation color="white" size={"15px"} /> Address No.43, Rotaryagama, Inamaluwa - Sigiriya
+                    </a>
                   </li>
                 </ul>
               </div>

@@ -4,7 +4,7 @@ interface Services {
   name: string;
   description: string;
   timeslot: string;
-  price: string;
+  // price: string;
 }
 
 const servicesCard: Services[] = [
@@ -13,9 +13,9 @@ const servicesCard: Services[] = [
     imgSrc: "images/service/service-1.jpg",
     name: "Full Body Massage",
     timeslot: "60 + 10 Minute Meditation Sessions",
-    price: "9000 LKR",
+    // price: "9000 LKR",
     description:
-      "Santharpana Ayurveda Ashram offers a 60-minute full-body massage designed to relieve stress and tension, performed by experienced male therapists trained in deep relaxation techniques. Using high-quality herbal oil or Aloe Vera cream, this massage covers your back, neck, shoulders, arms, legs, and feet, blending Swedish and deep tissue methods for a soothing experience. Our herbal oil nourishes the skin and promotes circulation, while Aloe Vera cream is gentle on sensitive skin.\n\n Our therapists customize the massage to meet your needs and maintain your comfort and privacy throughout. This rejuvenating massage is both luxurious and affordable. Book your appointment today for a relaxing escape at Santharpana Ayurveda Ashram.",
+      "Santharpana Ayurveda Ashram offers a 60-minute full-body massage designed to relieve stress and tension, performed by experienced therapists trained in deep relaxation techniques. Using high-quality herbal oil or Aloe Vera cream, this massage covers your back, neck, shoulders, arms, legs, and feet, blending uique Ayurveda and deep tissue methods for a soothing experience. Our herbal oil nourishes the skin and promotes circulation, while Aloe Vera cream is gentle on sensitive skin.\n\n Our therapists customize the massage to meet your needs and maintain your comfort and privacy throughout. This rejuvenating massage is both luxurious and affordable. Book your appointment today for a relaxing escape at Santharpana Ayurveda Ashram.",
   },
   // {
   //   id: 2,
@@ -32,18 +32,18 @@ const servicesCard: Services[] = [
     imgSrc: "images/service/service-6.jpg",
     name: "Shirodhara Therapy",
     timeslot: "30 Minute Sessions",
-    price: "6000 LKR",
+    // price: "6000 LKR",
     description:
-      "Santharpana Ayurveda Ashram offers Seerodara, a unique Ayurvedic treatment using heated herbal compresses to relieve head tension and promote relaxation. This 10-minute treatment is available only until 12:00 pm, making it a perfect way to start your day.\n\n In Seerodara, a heated herbal oil blend, made from natural herbs, spices, and oils, is applied to the head dot by dot, soothing stress, headaches, and anxiety while improving blood circulation. The gentle warmth and pressure create a calming and rejuvenating experience.\n\n We use high-quality herbs and oils that are free from harmful chemicals. Our experienced therapists ensure you receive a personalized and luxurious Seerodara treatment, guiding you through each step to maximize the benefits.\n\n Book your Seerodara session at Santharpana Ayurveda Ashram today to enjoy a stress-relieving and affordable start to your day, leaving you refreshed and revitalized.",
+      "Santharpana Ayurveda Ashram offers Shirodhara, a unique Ayurvedic treatment using heated herbal compresses to relieve head tension and promote relaxation. \n\n In Shirodhara, a heated herbal oil blend, made from natural herbs, spices, and oils, is applied to the head dot by dot, soothing stress, headaches, and anxiety while improving blood circulation. The gentle warmth and pressure create a calming and rejuvenating experience.\n\n We use high-quality herbs and oils that are free from harmful chemicals. Our experienced therapists ensure you receive a personalized and luxurious Shirodhara treatment, guiding you through each step to maximize the benefits.\n\n Book your Shirodhara session at Santharpana Ayurveda Ashram today to enjoy a stress-relieving and affordable start to your day, leaving you refreshed and revitalized.",
   },
   {
     id: 3,
     imgSrc: "images/service/service-4.jpg",
     name: "Sauna/Steam bath",
     timeslot: "30 Minute Sessions",
-    price: "6000 LKR",
+    // price: "6000 LKR",
     description:
-      "Santharpana Ayurveda Ashram offers a traditional steam bath designed to cleanse and rejuvenate. Our steam bath blends lime leaves, pawatta leaves, Justicia Adhatoda leaves, Kohoba leaves, and cinnamon leaves for their unique therapeutic benefits.\n\n The steam bath opens pores for deeper cleansing, detoxifies, and relaxes muscles. It can improve circulation, reduce stress, and boost immunity. The leaves used provide antioxidants, anti-inflammatory properties, antibacterial effects, analgesic benefits, and improved blood circulation.\n\n Enjoy this experience in a private, peaceful setting with guidance from experienced therapists. Our steam bath is affordable and accessible, ensuring everyone can enjoy relaxation and rejuvenation. Book now to feel refreshed at Santharpana Ayurveda Ashram.",
+      "Santharpana Ayurveda Ashram offers a traditional steam bath designed to cleanse and rejuvenate the body and mind.\n\n The steam bath opens pores for deeper cleansing, detoxifies the body, and relaxes muscles. It improves circulation, reduces stress, and boosts immunity. Additionally, it provides antioxidant, anti-inflammatory, antibacterial, and analgesic benefits, while promoting better blood circulation.\n\n Enjoy this revitalizing experience in a private and peaceful setting, guided by our experienced therapists. Our steam bath is both affordable and accessible, ensuring that everyone can experience the relaxation and rejuvenation they deserve.\n\n Book your session now and feel refreshed at Santharpana Ayurveda Ashram!",
   },
   // {
   //   id: 4,
@@ -60,18 +60,18 @@ const servicesCard: Services[] = [
     imgSrc: "images/service/service-7.jpg",
     name: "Pinda Massage",
     timeslot: "60 Minute Sessions",
-    price: "9000 LKR",
+    // price: "9000 LKR",
     description:
       "Santharpana Ayurveda Ashram offers the Aromatic Pinda Massage, a luxurious 60-minute full-body treatment combining Ayurvedic and Oriental traditions. The massage uses hand-crafted bags filled with aromatic herbs and essential oils, which are steamed and gently pressed over the body to relieve tension, improve circulation, and detoxify.\n\n The warmth and soothing aromas create a deeply relaxing experience, making it ideal for those with muscle pain, stiffness, or stress. The therapeutic heat and gentle pressure provide relief from soreness while promoting relaxation and reducing anxiety.\n\n Our experienced therapists tailor the treatment to your needs, ensuring a personalized and luxurious massage experience. The herbal bags contain only high-quality natural ingredients, free from harmful chemicals, to offer a holistic and rejuvenating session.\n\n Book your Aromatic Pinda Massage at Santharpana Ayurveda Ashram today for a calming and affordable way to pamper yourself. Experience the ultimate in relaxation and leave feeling refreshed and revitalized.",
   },
   {
     id: 7,
-    imgSrc: "images/service/all.jpg",
-    name: "Full Body + Shirodhara + Steam bath + Meditation",
+    imgSrc: "images/service/all.webp",
+    name: "Full Body Massage + Shirodhara + Steam Bath + Meditation",
     timeslot: "130 Minute Package",
-    price: "18,000 LKR",
+    // price: "18,000 LKR",
     description:
-      "Santharpana Ayurveda Ashram offers a rejuvenating package that includes a 60-minute Full Body Massage, a 40-minute Seerodara Therapy, and a 20-minute Pinda Massage. This package combines Ayurvedic and traditional treatments to provide a complete relaxation experience, leaving you feeling refreshed and revitalized.\n\n The Full Body Massage relieves stress and muscle tension, while Seerodara Therapy uses heated herbal compresses to promote head relaxation. The Pinda Massage employs hand-crafted bags filled with aromatic and medicinal herbs for a soothing full-body massage.\n\n This package is affordably priced and suitable for those with muscle pain, stiffness, or fatigue. It also helps to reduce stress and anxiety, as the gentle warmth and pressure promote relaxation. Our experienced therapists ensure a personalized and luxurious experience, using only high-quality natural ingredients free from harmful chemicals or additives.\n\n Book your Full Body + Seerodara + Pinda package at Santharpana Ayurveda Ashram today to experience the ultimate in relaxation and rejuvenation. It's a popular and accessible way to pamper yourself and enjoy a holistic, calming experience.",
+      "Santharpana Ayurveda Ashram invites you to experience a rejuvenating package that includes a Full Body Massage, Shirodhara Therapy, a Steam Bath, and Meditation. This thoughtfully curated package blends Ayurvedic and traditional treatments, providing a comprehensive relaxation experience that leaves you feeling refreshed and revitalized.\n\n- Full Body Massage: Relieves stress, eases muscle tension, and promotes overall relaxation.\n- Shirodhara Therapy: A calming treatment where warm herbal oils are gently poured over the forehead, soothing the mind and encouraging mental clarity.\n- Steam Bath: Helps detoxify the body and enhances the benefits of the massage.\n- Meditation: Completes the experience by centering your mind and fostering inner peace.\n\nThis affordable package is ideal for those dealing with muscle pain, stiffness, or fatigue. It also helps alleviate stress and anxiety as the gentle warmth and pressure create a deeply relaxing effect.\n\nAt Santharpana Ayurveda Ashram, our skilled therapists use only high-quality, natural ingredients free from harmful chemicals or additives. Each treatment is tailored to your specific needs, ensuring a luxurious and personalized experience.\n\nBook your Full Body Massage + Shirodhara + Steam Bath + Meditation package today and discover the ultimate way to pamper yourself. Treat your body and mind to this holistic journey of relaxation and rejuvenation.",
   },
 ];
 

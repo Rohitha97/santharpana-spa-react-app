@@ -1,0 +1,10 @@
+/* e.g., in GalleryComponents.css */
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 6px;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

@@ -1,5 +1,4 @@
 import PageHeader from "../Layouts/PageHeader";
-import queryString from "query-string";
 import { useLocation } from "react-router-dom";
 
 function Description(props: any) {
@@ -30,7 +29,7 @@ function Description(props: any) {
                       {paragraph}
                     </p>
                   ))}
-                <h5>Price : {price}</h5>
+                {/* <h5>Price : {price}</h5> */}
               </div>
             </div>
           </div>
