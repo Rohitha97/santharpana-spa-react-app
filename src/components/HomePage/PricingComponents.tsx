@@ -39,9 +39,9 @@ function PricingComponents() {
                     <div className="content">
                       <p className="mb-2 responsive-text">{service.timeslot}</p> {/* Add a class here */}
                     </div>
-                    {/* <div className="service-price">
+                    <div className="service-price">
                       <h4 className="price responsive-text">{service.price}</h4> 
-                    </div> */}
+                    </div>
                   </div>
                 </Link>
               </div>

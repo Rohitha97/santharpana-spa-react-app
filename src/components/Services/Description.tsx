@@ -29,7 +29,7 @@ function Description(props: any) {
                       {paragraph}
                     </p>
                   ))}
-                {/* <h5>Price : {price}</h5> */}
+                <h5>Price : {price}</h5>
               </div>
             </div>
           </div>
