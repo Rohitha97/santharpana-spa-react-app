@@ -101,7 +101,7 @@ function Footer() {
                 &copy; Copyright {currentDate}{" "}
                 <span className="text-color">
                   <Link to="https://www.santharpanaspa.com">Santharpana Ayurveda Ashram</Link>
-                  {" | "}Developed by <Link to="https://rohitha-grvok0t2d-rohitha97s-projects.vercel.app/">Rohitha Rathnayake</Link>
+                  {" | "}Developed by <Link to="https://rohitha.vercel.app/">Rohitha Rathnayake</Link>
                 </span>
               </div>
             </div>
