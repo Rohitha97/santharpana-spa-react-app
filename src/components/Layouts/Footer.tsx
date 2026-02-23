@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ScrollTriggerButton from "./ScrollButton";

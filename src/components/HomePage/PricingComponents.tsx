@@ -1,5 +1,3 @@
-import React from "react";
-import AppoinmentComponents from "./AppoinmentComponents";
 import { Services, servicesCard } from "../../DataModel/ServicesModel";
 import { Link } from "react-router-dom";
 import "./PricingComponents.css";

@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "../../index.css";
 import { MdEmail, MdWrongLocation } from "react-icons/md";
 import { GoGrabber } from "react-icons/go";
 
 function NavBar() {
   const [showNavLinks, setShowNavLinks] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleNavLinks = () => {
     setShowNavLinks(!showNavLinks);
+  };
+
+  const closeNavLinks = () => {
+    setShowNavLinks(false);
   };
 
   return (
@@ -46,40 +59,40 @@ function NavBar() {
             </div>
           </div>
         </div>
-        <nav className="navbar navbar-expand-lg navigation flex-lg-column-reverse" id="navbar">
+        <nav className={`navbar navbar-expand-lg navigation flex-lg-column-reverse ${scrolled ? "scrolled" : ""}`} id="navbar" style={{ position: "sticky", top: 0, zIndex: 1000 }}>
           <div className="container">
             <a className="navbar-brand" href="/">
               <img src="images/logo.png" alt="" className="logo-img img-fluid" />
             </a>
 
-            <GoGrabber size={40} color="#4b1e3d" onClick={toggleNavLinks} className="d-lg-none" />
+            <GoGrabber size={40} color="#4b1e3d" onClick={toggleNavLinks} className="d-lg-none" style={{ cursor: "pointer" }} />
 
             <div className={`collapse navbar-collapse flex-row-reverse ${showNavLinks ? "show" : ""}`} id="navbarmain">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/" end onClick={closeNavLinks}>
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/services">
+                  <NavLink className="nav-link" to="/services" onClick={closeNavLinks}>
                     Services
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/appoinment">
+                  <NavLink className="nav-link" to="/appoinment" onClick={closeNavLinks}>
                     Appointment
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">
+                  <NavLink className="nav-link" to="/about" onClick={closeNavLinks}>
                     About
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contact">
+                  <NavLink className="nav-link" to="/contact" onClick={closeNavLinks}>
                     Contact
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

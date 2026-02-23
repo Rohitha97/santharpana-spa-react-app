@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -112,7 +112,7 @@ function ContactForm() {
                   <input type="hidden" name="_template" value="box" />
                   <input type="hidden" name="_captcha" value="false" />
                   <button className="btn btn-main btn-round-full" type="submit">
-                    Send Messege
+                    Send Message
                   </button>
                 </div>
               </form>

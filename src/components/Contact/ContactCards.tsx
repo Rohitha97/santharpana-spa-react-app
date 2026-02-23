@@ -1,4 +1,4 @@
-import React from "react";
+
 import { MdAlternateEmail, MdSupportAgent, MdWrongLocation } from "react-icons/md";
 import { Link } from "react-router-dom";
 

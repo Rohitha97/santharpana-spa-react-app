@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "../components/Layouts/Footer";
 import NavBar from "../components/Layouts/NavBar";
 import AppoinmentComponents from "../components/HomePage/AppoinmentComponents";

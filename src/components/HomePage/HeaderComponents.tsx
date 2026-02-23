@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import PricingComponents from "./PricingComponents";
 import { AiOutlineBook, AiOutlineClockCircle } from "react-icons/ai";
 import { MdSupportAgent } from "react-icons/md";
 import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";

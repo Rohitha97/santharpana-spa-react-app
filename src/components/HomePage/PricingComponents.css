@@ -1,37 +1,42 @@
-/* Decrease the font size on smaller screens */
-
-/* Base font size adjustments */
+/* Responsive text and card sizing */
 .responsive-text {
-  font-size: 1rem; /* default font size for larger screens */
+  font-size: 1rem;
 }
 
 .responsive-title h2 {
-  font-size: 2rem; /* example larger screen title size */
+  font-size: 2rem;
 }
 
-/* For smaller devices, reduce the font size */
+/* Pricing card hover effects */
+.service .service-item {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service .service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(75, 30, 61, 0.15);
+}
+
 @media (max-width: 576px) {
   .responsive-text {
-    font-size: 0.9rem; /* slightly smaller text on very small screens */
+    font-size: 0.9rem;
   }
 
   .responsive-title h2 {
     font-size: 1.5rem;
   }
+
   .responsive-card {
     padding: 10px !important;
   }
 }
 
-/* For even smaller screens (if needed) */
 @media (max-width: 400px) {
   .responsive-text {
-    font-size: 0.8rem; /* even smaller text on very small screens */
+    font-size: 0.8rem;
   }
 
   .responsive-title h2 {
     font-size: 1.3rem;
   }
 }
-
-/* Optional: Adjust spacing or other styling for cards on small screens */

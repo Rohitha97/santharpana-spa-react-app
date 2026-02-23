@@ -1,4 +1,4 @@
-import React from "react";
+
 import { ServiceGallery, servicesImg } from "../../DataModel/GalleryModel";
 
 function GalleryComponents() {
@@ -19,7 +19,7 @@ function GalleryComponents() {
             {servicesImg.map((services, index) => (
               <div className="col-lg-3 col-md-6 col-sm-6 mb-4" key={index}>
                 <div className="team-block mb-5 mb-lg-0">
-                  <img src={services.imgSrc} className="img-fluid w-100" />
+              <img src={services.imgSrc} className="img-fluid w-100 gallery-img" />
                 </div>
               </div>
             ))}
