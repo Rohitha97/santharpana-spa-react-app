@@ -1,0 +1,202 @@
+/* =====================================================
+   SANTHARPANA SPA — Loading Screen
+   Warm cream bg · Plum/Terracotta petal ring · Logo
+   ===================================================== */
+
+/* ── Overlay ── */
+.spa-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #faf7f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+
+  /* fade-in */
+  animation: loaderFadeIn 0.4s ease both;
+}
+
+.spa-loader--out {
+  animation: loaderFadeOut 0.6s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loaderFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ── Graphics container ── */
+.spa-loader__graphics {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+/* ── Petal ring ── */
+.spa-loader__ring {
+  position: absolute;
+  inset: 0;
+  animation: loaderRingSpin 8s linear infinite;
+}
+
+@keyframes loaderRingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spa-loader__petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 28px;
+  margin-top: -14px;
+  /* half height */
+  margin-left: -6px;
+  /* half width */
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(calc(var(--i) * 45deg)) translateY(-55px);
+  animation: petalPulse 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+/* Alternate plum and terracotta petals */
+.spa-loader__petal:nth-child(odd) {
+  background: #4b1e3d;
+}
+
+.spa-loader__petal:nth-child(even) {
+  background: #a96444;
+}
+
+@keyframes petalPulse {
+
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: rotate(calc(var(--i) * 45deg)) translateY(-55px) scaleY(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * 45deg)) translateY(-55px) scaleY(1.1);
+  }
+}
+
+/* ── Logo ── */
+.spa-loader__logo {
+  position: relative;
+  z-index: 1;
+  width: 82px;
+  height: 82px;
+  background: #faf7f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* subtle plum ring */
+  box-shadow:
+    0 0 0 4px #faf7f2,
+    0 0 0 5px rgba(75, 30, 61, 0.12);
+  animation: logoBreath 2.4s ease-in-out infinite;
+}
+
+.spa-loader__logo img {
+  width: 62px;
+  height: auto;
+  display: block;
+}
+
+@keyframes logoBreath {
+
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(75, 30, 61, 0));
+  }
+
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 12px rgba(75, 30, 61, 0.18));
+  }
+}
+
+/* ── Shimmer progress bar ── */
+.spa-loader__bar {
+  width: 120px;
+  height: 2px;
+  background: rgba(75, 30, 61, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.spa-loader__bar-fill {
+  height: 100%;
+  width: 45%;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      #4b1e3d 40%,
+      #a96444 60%,
+      transparent 100%);
+  animation: barShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes barShimmer {
+  0% {
+    transform: translateX(-140%);
+  }
+
+  100% {
+    transform: translateX(340%);
+  }
+}
+
+/* ── Tagline ── */
+.spa-loader__tagline {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(75, 30, 61, 0.45);
+  margin: 0;
+  animation: taglineFadeIn 0.8s 0.3s ease both;
+}
+
+@keyframes taglineFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

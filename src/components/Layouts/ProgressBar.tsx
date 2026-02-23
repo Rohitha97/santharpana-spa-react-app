@@ -1,13 +1,11 @@
-// ProgressBar.tsx
+import LoadingScreen from "./LoadingScreen";
 
+/**
+ * ProgressBar — re-exports the branded LoadingScreen
+ * Used as a Suspense fallback for any lazy-loaded components.
+ */
 function ProgressBar() {
-  return (
-    <div style={{ textAlign: "center", padding: "2rem" }}>
-      <div className="spinner-border" role="status">
-        <span className="sr-only"></span>
-      </div>
-      <p>Loading...</p>
-    </div>
-  );
+  return <LoadingScreen />;
 }
+
 export default ProgressBar;

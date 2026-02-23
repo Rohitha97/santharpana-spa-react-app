@@ -29,7 +29,7 @@ function Header() {
                   </a>
                   <Link
                     to="/services"
-                    className="btn btn-solid-border btn-round-full ms-3"
+                    className="btn btn-solid-border btn-round-full"
                     onClick={() => window.scrollTo(0, 0)}
                     style={{ color: "rgba(255,255,255,0.85)", borderColor: "rgba(255,255,255,0.45)" }}
                   >
