@@ -1,34 +1,42 @@
-
 import { MdAlternateEmail, MdSupportAgent, MdWrongLocation } from "react-icons/md";
 import { Link } from "react-router-dom";
+
+const cards = [
+  {
+    icon: <MdSupportAgent size={32} color="var(--plum)" />,
+    label: "Call Us",
+    value: "+94 76 243 6139",
+    href: "tel:+94762436139",
+  },
+  {
+    icon: <MdAlternateEmail size={32} color="var(--plum)" />,
+    label: "Email Us",
+    value: "gaminianilkumara@gmail.com",
+    href: "mailto:gaminianilkumara@gmail.com",
+  },
+  {
+    icon: <MdWrongLocation size={32} color="var(--plum)" />,
+    label: "Our Location",
+    value: "No.43, Rotaryagama, Inamaluwa, Sigiriya, Sri Lanka",
+    href: "https://goo.gl/maps/AmRn53RPKU83NJRr9",
+  },
+];
 
 function contactCards() {
   return (
     <>
       <section className="section contact-info pb-0">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-4 col-sm-6 col-md-6">
-              <div className="contact-block mb-4 mb-lg-0" style={{ paddingBottom: "74px" }}>
-                <MdSupportAgent color="#4b1e3d" size={"40px"} className="mb-3" />
-                <h5>Call Us</h5>
-                <Link to="tel:+94762436139">+94 76 243 6139</Link>
+          <div className="row g-4">
+            {cards.map(({ icon, label, value, href }) => (
+              <div className="col-lg-4 col-sm-6 col-md-6" key={label}>
+                <div className="contact-block h-100">
+                  <div className="mb-3">{icon}</div>
+                  <h5>{label}</h5>
+                  <Link to={href}>{value}</Link>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-sm-6 col-md-6">
-              <div className="contact-block mb-4 mb-lg-0" style={{ paddingBottom: "74px" }}>
-                <MdAlternateEmail color="#4b1e3d" size={"40px"} className="mb-3" />
-                <h5>Email Us</h5>
-                <Link to="mailto:gaminianilkumara@gmail.com">gaminianilkumara@gmail.com</Link>
-              </div>
-            </div>
-            <div className="col-lg-4 col-sm-6 col-md-6">
-              <div className="contact-block mb-4 mb-lg-0">
-                <MdWrongLocation color="#4b1e3d" size={"40px"} className="mb-3" />
-                <h5>Location</h5>
-                <Link to="https://goo.gl/maps/AmRn53RPKU83NJRr9">No.43, Rotaryagama, Inamaluwa, Sigiriya, Sri Lanka</Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

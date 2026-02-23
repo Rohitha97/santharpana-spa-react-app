@@ -1,29 +1,23 @@
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
-import { servicesCard } from "../../DataModel/ServicesModel";
 
-function AppoinmentComponents({}) {
-  // const form = useRef();
+function AppoinmentComponents({ }) {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
     if (form.current) {
-      emailjs.sendForm("service_wfya6jy", "template_qwwrktr", form.current, "4Dndd4knu6wytsWdR").then(
-        (result) => {
-          console.log(result.text);
-          toast.success("Your booking has been sent successfully");
-          form.current?.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          toast.error("Something went wrong");
-        }
-      );
+      emailjs
+        .sendForm("service_wfya6jy", "template_qwwrktr", form.current, "4Dndd4knu6wytsWdR")
+        .then(
+          () => {
+            toast.success("Your booking has been sent successfully!");
+            form.current?.reset();
+          },
+          () => toast.error("Something went wrong. Please try again.")
+        );
     }
   };
 
@@ -31,106 +25,45 @@ function AppoinmentComponents({}) {
     <>
       <section className="section appoinment">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-5 ">
+          <div className="row align-items-center g-5">
+            {/* Image side */}
+            <div className="col-lg-5">
               <div className="appoinment-content">
-                <img src="images/about/img-3.webp" alt="" className="img-fluid" />
+                <img src="images/about/img-3.webp" alt="Santharpana treatment" className="img-fluid" />
                 <div className="emergency">
-                  <h2 className="text-lg">
-                    <i className="icofont-phone-circle text-lg"></i>+94 762436139
+                  <h2>
+                    <i className="icofont-phone-circle"></i>
+                    +94 762 436 139
                   </h2>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-10 ">
-              <div className="appoinment-wrap mt-5 mt-lg-0">
-                <h2 className="mb-2 title-color">Book Appointment via WhatsApp</h2>
-                <p className="mb-4">Please provide the service name and date to book an appointment. We will get back to you as soon as possible.</p>
-                <div className="mb-4">
-                  <a className="btn btn-main btn-round-full rounded-5" aria-label="Chat on WhatsApp" href="https://wa.me/+94762436139">
+
+            {/* Content side */}
+            <div className="col-lg-6 col-md-10">
+              <div className="appoinment-wrap">
+                <span className="subtitle d-block mb-3">Easy Booking</span>
+                <h2 className="mb-3">Book Appointment<br />via WhatsApp</h2>
+                <p className="mb-4" style={{ fontSize: "15.5px", color: "var(--text-muted)" }}>
+                  Provide the service name and your preferred date — we'll get back to you as soon as possible to confirm your session.
+                </p>
+                <div className="d-flex align-items-center gap-3 flex-wrap">
+                  <a
+                    className="btn btn-main btn-round-full"
+                    aria-label="Chat on WhatsApp"
+                    href="https://wa.me/+94762436139"
+                  >
                     Chat on WhatsApp
                   </a>
-                </div>
-
-                {/* <ToastContainer />
-                <form ref={form} onSubmit={sendEmail}>
-                  <div className="row">
-                    <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <select
-                          className="form-control"
-                          name="Service"
-                          aria-label="Select Service"
-                        >
-                          <option selected>Select Service</option>
-                          {servicesCard.map((services, index) => (
-                            <option value={services.name}>
-                              {services.name}
-                            </option>
-                          ))}
-                        </select>
-                        {/* <input
-                          name="Service"
-                          type="text"
-                          className="form-control"
-                          placeholder="Service"
-                        /> 
-                      </div>
-                    </div>
-                    <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <input
-                          name="email"
-                          type="email"
-                          className="form-control"
-                          placeholder="Email"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <input
-                          name="Date"
-                          type="date"
-                          className="form-control"
-                          placeholder="dd/mm/yyyy"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <input
-                          name="Time"
-                          type="time"
-                          className="form-control"
-                          placeholder="Time"
-                          required
-                        />
-                      </div>
-                    </div>
-                    {/* <div className="col-lg-6 my-2">
-                      <div className="form-group">
-                        <input
-                          name="Name"
-                          type="text"
-                          className="form-control"
-                          placeholder="Name"
-                        />
-                      </div>
-                    </div> 
-                  </div>
-                  <button
-                    className="btn btn-main btn-round-full rounded-5"
-                    type="submit"
-                    // onClick={handleClick}
+                  <a
+                    className="btn btn-solid-border btn-round-full"
+                    href="tel:+94762436139"
+                    style={{ fontSize: "0.8rem" }}
                   >
-                    Make Appointment
-                    <i className="icofont-simple-right ml-2"></i>
-                  </button>
-                </form> */}
+                    Call Us
+                  </a>
+                </div>
+                <ToastContainer position="bottom-right" theme="light" />
               </div>
             </div>
           </div>

@@ -1,33 +1,40 @@
 import { Link } from "react-router-dom";
 import { servicesCard } from "../../DataModel/ServicesModel";
-import "./ServicesComponents.css"; // Import the CSS
+import "./ServicesComponents.css";
 
 function ServicesComponents() {
   return (
     <section className="section service-2">
       <div className="container">
-        <div className="row">
-          {servicesCard.map((services, index) => (
+        <div className="row justify-content-center mb-5">
+          <div className="col-lg-6 text-center">
+            <span className="subtitle d-block mb-3">Holistic Healing</span>
+            <h2 style={{ color: "var(--plum)" }}>All Treatments</h2>
+            <div className="divider mx-auto mt-3"></div>
+          </div>
+        </div>
+        <div className="row g-4">
+          {servicesCard.map((service, index) => (
             <div className="col-6 col-md-4 col-lg-4" key={index}>
-              <div className="service-block mb-5">
-                <img src={services.imgSrc} alt={services.name} className="img-fluid image-responsive" />
+              <div className="service-block mb-2">
+                <img
+                  src={service.imgSrc}
+                  alt={service.name}
+                  className="image-responsive"
+                />
                 <div className="content">
-                  {/* Use h4 for SEO/semantic reasons but style it as h6 on mobile */}
-                  <h4 className="mt-4 mb-4 title-color title-mobile">{services.name}</h4>
+                  <h4 className="title-mobile">{service.name}</h4>
+                  <Link
+                    className="btn btn-outline-dark btn-round-full link-mobile"
+                    to={{
+                      pathname: "/description",
+                      search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}&price=${encodeURIComponent(service.price)}`,
+                    }}
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    Learn More
+                  </Link>
                 </div>
-
-                <Link
-                  className="btn btn-outline-dark btn-round-full rounded-5 link-mobile"
-                  to={{
-                    pathname: "/description",
-                    search: `?name=${encodeURIComponent(services.name)}&description=${encodeURIComponent(services.description)}&imgSrc=${encodeURIComponent(
-                      services.imgSrc
-                    )}&price=${encodeURIComponent(services.price)}`,
-                  }}
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  More About Treatment
-                </Link>
               </div>
             </div>
           ))}

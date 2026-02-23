@@ -5,34 +5,20 @@ function ScrollTriggerButton() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const handleScroll = () => setShowButton(window.scrollY > 300);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleScroll = () => {
-    if (window.pageYOffset > 300) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  if (!showButton) return null;
 
   return (
     <div className="scroll-trigger-button">
-      {showButton && (
-        <button className="backtop" onClick={scrollToTop}>
-          <AiOutlineArrowUp />
-        </button>
-      )}
+      <button className="backtop" onClick={scrollToTop} aria-label="Scroll to top">
+        <AiOutlineArrowUp size={18} />
+      </button>
     </div>
   );
 }
