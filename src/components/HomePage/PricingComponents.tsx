@@ -18,15 +18,9 @@ function PricingComponents() {
           </div>
 
           <div className="row justify-content-center">
-            {servicesCard.map((service, index) => (
-              <div className="col-6 col-sm-6 col-md-6 col-lg-4 mb-4" key={index}>
-                <Link
-                  to={{
-                    pathname: "/description",
-                    search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}&price=${encodeURIComponent(service.price)}`,
-                  }}
-                  onClick={() => window.scrollTo(0, 0)}
-                >
+            {servicesCard.map((service) => (
+              <div className="col-6 col-sm-6 col-md-6 col-lg-4 mb-4" key={service.id}>
+                <Link to={`/description?id=${service.id}`}>
                   <div className="service-item responsive-card">
                     <h4 className="responsive-text">{service.name}</h4>
                     <p className="responsive-text">{service.timeslot}</p>

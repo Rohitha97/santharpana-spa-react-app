@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { servicesCard } from "../../DataModel/ServicesModel";
 import "./ServicesComponents.css";
+import { img } from "../../utils/image";
 
 function ServicesComponents() {
   return (
@@ -15,22 +16,24 @@ function ServicesComponents() {
         </div>
         <div className="row g-4">
           {servicesCard.map((service, index) => (
-            <div className="col-6 col-md-4 col-lg-4" key={index}>
+            <div className="col-6 col-md-4 col-lg-4" key={service.id}>
               <div className="service-block mb-2">
                 <img
-                  src={service.imgSrc}
+                  src={img(service.imgSrc)}
                   alt={service.name}
                   className="image-responsive"
+                  width={600}
+                  height={400}
+                  /* The first row is above the fold on most screens */
+                  loading={index < 3 ? "eager" : "lazy"}
+                  decoding="async"
                 />
                 <div className="content">
                   <h4 className="title-mobile">{service.name}</h4>
                   <Link
                     className="btn btn-outline-dark btn-round-full link-mobile"
-                    to={{
-                      pathname: "/description",
-                      search: `?name=${encodeURIComponent(service.name)}&description=${encodeURIComponent(service.description)}&imgSrc=${encodeURIComponent(service.imgSrc)}&price=${encodeURIComponent(service.price)}`,
-                    }}
-                    onClick={() => window.scrollTo(0, 0)}
+                    to={`/description?id=${service.id}`}
+                    aria-label={`Learn more about ${service.name}`}
                   >
                     Learn More
                   </Link>

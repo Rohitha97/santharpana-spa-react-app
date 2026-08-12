@@ -1,6 +1,8 @@
-import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ScrollTriggerButton from "./ScrollButton";
+import SocialLinks from "./SocialLinks";
+import { externalLink, site } from "../../config/site";
+import { img } from "../../utils/image";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,11 +16,27 @@ function Footer() {
             <div className="col-lg-4 col-sm-6 mb-5 mb-lg-0">
               <div className="widget">
                 <div className="logo mb-4">
-                  <img src="images/logo.png" alt="Santharpana Ayurveda Ashram" style={{ width: "80px" }} />
+                  <img
+                    src={img("logo.png")}
+                    alt={site.name}
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: "80px", height: "auto" }}
+                  />
                 </div>
                 <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: "1.7", maxWidth: "260px" }}>
                   A government-registered Ayurvedic spa nestled in the lush greenery of Sigiriya, Sri Lanka. Your sanctuary for authentic healing.
                 </p>
+                <address
+                  className="mt-3 mb-0"
+                  style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", fontStyle: "normal", lineHeight: "1.7" }}
+                >
+                  {site.address.street}
+                  <br />
+                  {site.address.city}, {site.address.country}
+                </address>
               </div>
             </div>
 
@@ -29,8 +47,8 @@ function Footer() {
                 <div className="divider mb-4"></div>
                 <div className="widget-contact">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.738853107973!2d80.68895937500635!3d7.922322592101289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afca5579088964d%3A0x93dec67d5bb03db1!2sSantharpana%20Ayurveda%20Ashram%2C%20Ayurvedic%20massage.!5e0!3m2!1sen!2sjp!4v1734852297473!5m2!1sen!2sjp"
-                    title="Santharpana location"
+                    src={site.maps.embed}
+                    title={`Map showing ${site.name} at ${site.address.full}`}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
@@ -47,33 +65,23 @@ function Footer() {
                 <div className="footer-contact-block mb-4">
                   <span className="h6 d-block">Support Available 24 / 7</span>
                   <h4>
-                    <Link to="mailto:gaminianilkumara@gmail.com">
-                      gaminianilkumara@gmail.com
-                    </Link>
+                    <a href={site.mailto}>{site.email}</a>
                   </h4>
                 </div>
 
                 <div className="footer-contact-block mb-4">
-                  <span className="h6 d-block">Mon – Sunday · 09:00 – 21:00</span>
+                  <span className="h6 d-block">
+                    {site.hours.days} · {site.hours.time}
+                  </span>
                   <h4>
-                    <Link to="https://wa.me/+94762436139">+94 76 243 6139</Link>
+                    <a href={site.phone.whatsapp} {...externalLink}>
+                      {site.phone.display}
+                    </a>
                   </h4>
                 </div>
 
                 <div className="footer-contact-block">
-                  <ul className="footer-socials list-unstyled d-flex flex-wrap gap-2 mt-3">
-                    {[
-                      { href: "https://wa.me/+94762436139", icon: <FaWhatsapp />, label: "WhatsApp" },
-                      { href: "https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/", icon: <FaFacebookF />, label: "Facebook" },
-                      { href: "https://www.instagram.com/santharpanaspa/", icon: <FaInstagram />, label: "Instagram" },
-                      { href: "https://goo.gl/maps/d8M9YnxJLPCveBNQ9", icon: <FaGoogle />, label: "Google" },
-                      { href: "https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html", icon: <FaTripadvisor />, label: "Tripadvisor" },
-                    ].map(({ href, icon, label }) => (
-                      <li key={label}>
-                        <Link to={href} aria-label={label}>{icon}</Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <SocialLinks variant="dark" />
                 </div>
               </div>
             </div>
@@ -83,9 +91,11 @@ function Footer() {
           <div className="footer-btm pt-4 mt-4">
             <div className="text-center copyright">
               &copy; {currentYear}{" "}
-              <Link to="https://www.santharpanaspa.com">Santharpana Ayurveda Ashram</Link>
+              <Link to="/">{site.name}</Link>
               {" · "}Developed by{" "}
-              <Link to="https://rohitha.vercel.app/">Rohitha Rathnayake</Link>
+              <a href="https://rohitha.vercel.app/" {...externalLink}>
+                Rohitha Rathnayake
+              </a>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { externalLink, site } from "../../config/site";
 
 function GetAppoinmentBanner() {
   return (
@@ -16,14 +17,14 @@ function GetAppoinmentBanner() {
                   <Link
                     to="/appoinment"
                     className="btn btn-main-2 btn-round-full"
-                    onClick={() => window.scrollTo(0, 0)}
                   >
                     Get an Appointment
                   </Link>
                   <a
-                    href="https://wa.me/+94762436139"
+                    href={site.phone.whatsapp}
                     className="btn btn-white btn-round-full"
                     aria-label="Chat on WhatsApp"
+                    {...externalLink}
                   >
                     WhatsApp Us
                   </a>
