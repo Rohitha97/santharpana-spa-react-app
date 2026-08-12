@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../../index.css";
-import { MdEmail, MdWrongLocation } from "react-icons/md";
+import { MdEmail, MdLocationOn } from "react-icons/md";
+import { externalLink, site } from "../../config/site";
+import { img } from "../../utils/image";
 
 function NavBar() {
   const [showNavLinks, setShowNavLinks] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      // Coalesce scroll events into one state update per frame
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 60);
+        ticking = false;
+      });
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,19 +37,20 @@ function NavBar() {
               <div className="col-lg-8">
                 <ul className="top-bar-info list-inline mb-0 d-flex align-items-center gap-4">
                   <li className="list-inline-item">
-                    <a href="mailto:gaminianilkumara@gmail.com" className="d-flex align-items-center gap-2">
-                      <MdEmail size={15} style={{ opacity: 0.7 }} />
-                      gaminianilkumara@gmail.com
+                    <a href={site.mailto} className="d-flex align-items-center gap-2">
+                      <MdEmail size={15} style={{ opacity: 0.7 }} aria-hidden="true" />
+                      {site.email}
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a
-                      aria-label="Address"
-                      href="https://maps.app.goo.gl/agdzNa4x1hKDppHg9"
+                      aria-label={`Our location: ${site.address.full}`}
+                      href={site.maps.link}
                       className="d-flex align-items-center gap-2"
+                      {...externalLink}
                     >
-                      <MdWrongLocation size={14} style={{ opacity: 0.7 }} />
-                      No.43, Rotaryagama, Inamaluwa – Sigiriya
+                      <MdLocationOn size={14} style={{ opacity: 0.7 }} aria-hidden="true" />
+                      {site.address.short}
                     </a>
                   </li>
                 </ul>
@@ -46,11 +58,12 @@ function NavBar() {
               <div className="col-lg-4 text-end">
                 <a
                   aria-label="Chat on WhatsApp"
-                  href="https://wa.me/+94762436139"
+                  href={site.phone.whatsapp}
+                  {...externalLink}
                   style={{ color: "rgba(232,197,170,0.9)", fontWeight: 500, letterSpacing: "0.04em", fontSize: "13px" }}
                 >
                   WhatsApp&nbsp;
-                  <span style={{ color: "#d4a88a", fontWeight: 600 }}>+94 76 243 6139</span>
+                  <span style={{ color: "#d4a88a", fontWeight: 600 }}>{site.phone.display}</span>
                 </a>
               </div>
             </div>
@@ -66,14 +79,24 @@ function NavBar() {
           <div className="container d-flex align-items-center justify-content-between">
             {/* Logo */}
             <Link className="navbar-brand" to="/" onClick={closeNavLinks}>
-              <img src="images/logo.png" alt="Santharpana Spa" className="logo-img" />
+              <img
+                src={img("logo.png")}
+                alt={site.name}
+                className="logo-img"
+                width={80}
+                height={80}
+                fetchPriority="high"
+                decoding="async"
+              />
             </Link>
 
             {/* Hamburger — mobile */}
             <button
               className="d-lg-none"
               onClick={toggleNavLinks}
-              aria-label="Toggle navigation"
+              aria-label={showNavLinks ? "Close navigation" : "Open navigation"}
+              aria-expanded={showNavLinks}
+              aria-controls="navbarmain"
               style={{
                 background: "none",
                 border: "none",

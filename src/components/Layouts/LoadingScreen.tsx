@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./LoadingScreen.css";
+import { img } from "../../utils/image";
 
 interface LoadingScreenProps {
     /** When true the spinner fades out and unmounts */
@@ -33,7 +34,7 @@ function LoadingScreen({ done = false }: LoadingScreenProps) {
 
                 {/* Logo */}
                 <div className="spa-loader__logo">
-                    <img src="images/logo.png" alt="Santharpana" />
+                    <img src={img("logo.png")} alt="Santharpana" width={90} height={90} />
                 </div>
             </div>
 

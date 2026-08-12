@@ -1,14 +1,41 @@
+import { Link, useSearchParams } from "react-router-dom";
 import PageHeader from "../Layouts/PageHeader";
-import { useLocation } from "react-router-dom";
+import { servicesCard } from "../../DataModel/ServicesModel";
+import { externalLink, site } from "../../config/site";
+import { img } from "../../utils/image";
 
 function Description() {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const name = searchParams.get("name");
-  const description = searchParams.get("description");
-  const imgSrc = searchParams.get("imgSrc");
-  const price = searchParams.get("price");
-  const paragraphs = description?.split("\n").filter(Boolean);
+  const [searchParams] = useSearchParams();
+
+  // Treatments are looked up by id so the URL stays short. Older links carried
+  // the whole description in the query string, so fall back to those params.
+  const id = searchParams.get("id");
+  const service = id ? servicesCard.find((s) => String(s.id) === id) : undefined;
+
+  const name = service?.name ?? searchParams.get("name");
+  const description = service?.description ?? searchParams.get("description");
+  const imgSrc = service?.imgSrc ?? searchParams.get("imgSrc");
+  const price = service?.price ?? searchParams.get("price");
+
+  const paragraphs = description?.split("\n").filter((line) => line.trim().length > 0);
+
+  if (!name) {
+    return (
+      <>
+        <PageHeader title="Treatment Not Found" subtitle="Our Services" />
+        <section className="section">
+          <div className="container text-center">
+            <p className="mb-4" style={{ color: "var(--text-muted)" }}>
+              We couldn't find that treatment. Browse our full list instead.
+            </p>
+            <Link to="/services" className="btn btn-main btn-round-full">
+              View All Treatments
+            </Link>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>
@@ -18,18 +45,23 @@ function Description() {
           <div className="row align-items-start g-5">
             {/* Image */}
             <div className="col-lg-5 col-sm-10">
-              <img
-                src={imgSrc ?? undefined}
-                alt={name ?? "Treatment"}
-                className="img-fluid"
-                style={{
-                  borderRadius: "var(--r-lg)",
-                  boxShadow: "var(--sh-lg)",
-                  width: "100%",
-                  objectFit: "cover",
-                  maxHeight: "500px",
-                }}
-              />
+              {imgSrc && (
+                <img
+                  src={img(imgSrc)}
+                  alt={name}
+                  className="img-fluid"
+                  width={800}
+                  height={1000}
+                  decoding="async"
+                  style={{
+                    borderRadius: "var(--r-lg)",
+                    boxShadow: "var(--sh-lg)",
+                    width: "100%",
+                    objectFit: "cover",
+                    maxHeight: "500px",
+                  }}
+                />
+              )}
             </div>
 
             {/* Content */}
@@ -92,9 +124,12 @@ function Description() {
 
                 <div className="mt-4">
                   <a
-                    href="https://wa.me/+94762436139"
+                    href={`${site.phone.whatsapp}?text=${encodeURIComponent(
+                      `Hello Santharpana, I'd like to book the "${name}" treatment.`
+                    )}`}
                     className="btn btn-main btn-round-full"
-                    aria-label="Book via WhatsApp"
+                    aria-label="Book this treatment via WhatsApp"
+                    {...externalLink}
                   >
                     Book This Treatment
                   </a>
