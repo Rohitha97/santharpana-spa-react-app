@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { AiOutlineBook, AiOutlineClockCircle } from "react-icons/ai";
+import { AiOutlineBook, AiOutlineClockCircle, AiFillStar } from "react-icons/ai";
 import { MdSupportAgent } from "react-icons/md";
-import { FaFacebookF, FaGoogle, FaInstagram, FaTripadvisor, FaWhatsapp } from "react-icons/fa";
+import SocialLinks from "../Layouts/SocialLinks";
+import { externalLink, site, whatsappLink } from "../../config/site";
+import { img } from "../../utils/image";
+import { track } from "../../utils/analytics";
 
 function Header() {
   return (
@@ -19,18 +22,37 @@ function Header() {
                 <p className="banner-p mb-4">
                   The Authentic Ayurvedic Massage specialises in holistic body healing and mental relaxation, deep in the greenery of Sigiriya.
                 </p>
+                {/* The strongest thing we have to say, said before the buttons */}
+                <a
+                  className="banner-rating"
+                  href={site.maps.link}
+                  onClick={() => track("review_click", { source: "hero" })}
+                  {...externalLink}
+                >
+                  <span className="banner-rating-stars" aria-hidden="true">
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <AiFillStar key={i} />
+                    ))}
+                  </span>
+                  <span>
+                    {site.reviews.rating} from {site.reviews.count} Google reviews
+                  </span>
+                </a>
                 <div className="btn-container">
                   <a
                     className="btn btn-main-2 btn-round-full"
-                    aria-label="Chat on WhatsApp"
-                    href="https://wa.me/+94762436139"
+                    aria-label="Book an appointment on WhatsApp"
+                    href={whatsappLink(
+                      "Hello Santharpana, I'd like to book an Ayurvedic treatment. Could you send me your price list and available times?"
+                    )}
+                    onClick={() => track("whatsapp_click", { source: "hero" })}
+                    {...externalLink}
                   >
                     Book an Appointment
                   </a>
                   <Link
                     to="/services"
                     className="btn btn-solid-border btn-round-full"
-                    onClick={() => window.scrollTo(0, 0)}
                     style={{ color: "rgba(255,255,255,0.85)", borderColor: "rgba(255,255,255,0.45)" }}
                   >
                     Our Services
@@ -54,15 +76,22 @@ function Header() {
                   <div className="feature-icon">
                     <AiOutlineBook color="var(--plum)" size={26} />
                   </div>
-                  <span>24-Hour Service</span>
-                  <h4>Book Online</h4>
+                  {/* Was "24-Hour Service", which contradicted the 9am–9pm hours
+                      on the Google listing right below it. */}
+                  <span>Open Every Day</span>
+                  <h4>Book on WhatsApp</h4>
                   <p className="mb-4">
-                    Sometimes the best thing to do is just call it a day and go get a massage.
+                    Message us with a treatment and a time. We reply with the price list and confirm
+                    your slot.
                   </p>
                   <a
-                    aria-label="Chat on WhatsApp"
-                    href="https://wa.me/+94762436139"
+                    aria-label="Make an appointment on WhatsApp"
+                    href={whatsappLink(
+                      "Hello Santharpana, I'd like to make an appointment. What times do you have available?"
+                    )}
                     className="btn btn-main btn-round-full"
+                    onClick={() => track("whatsapp_click", { source: "feature_card" })}
+                    {...externalLink}
                   >
                     Make an Appointment
                   </a>
@@ -77,8 +106,8 @@ function Header() {
                   <h4>Working Hours</h4>
                   <ul className="w-hours list-unstyled mt-2">
                     <li className="d-flex justify-content-between">
-                      <span>Monday – Sunday</span>
-                      <span style={{ color: "var(--plum)", fontWeight: 600 }}>9:00&nbsp;–&nbsp;21:00</span>
+                      <span>{site.hours.days}</span>
+                      <span style={{ color: "var(--plum)", fontWeight: 600 }}>{site.hours.time}</span>
                     </li>
                   </ul>
                 </div>
@@ -89,40 +118,16 @@ function Header() {
                     <MdSupportAgent color="var(--plum)" size={26} />
                   </div>
                   <span>Contact Us</span>
-                  <h4>+94 76 243 6139</h4>
-                  <ul className="footer-socials list-unstyled d-flex flex-wrap gap-2 mt-3">
-                    {[
-                      { href: "https://wa.me/+94762436139", icon: <FaWhatsapp />, label: "WhatsApp" },
-                      { href: "https://www.facebook.com/Santharpana-Ayurvedic-Garden-Spa-100482329280363/", icon: <FaFacebookF />, label: "Facebook" },
-                      { href: "https://www.instagram.com/santharpanaspa/", icon: <FaInstagram />, label: "Instagram" },
-                      { href: "https://goo.gl/maps/d8M9YnxJLPCveBNQ9", icon: <FaGoogle />, label: "Google" },
-                      { href: "https://www.tripadvisor.com/Attraction_Review-g304141-d23948259-Reviews-Santharpana_Ayurvedic_Garden-Sigiriya_Central_Province.html", icon: <FaTripadvisor />, label: "Tripadvisor" },
-                    ].map(({ href, icon, label }) => (
-                      <li key={label}>
-                        <Link to={href} aria-label={label}
-                          style={{
-                            display: "flex", alignItems: "center", justifyContent: "center",
-                            width: 34, height: 34, borderRadius: "50%",
-                            background: "var(--plum-mist)", border: "1px solid var(--border)",
-                            color: "var(--plum)", fontSize: 13,
-                            transition: "background var(--t-fast), color var(--t-fast), transform var(--t-spring)"
-                          }}
-                          onMouseEnter={e => {
-                            (e.currentTarget as HTMLElement).style.background = "var(--plum)";
-                            (e.currentTarget as HTMLElement).style.color = "#fff";
-                            (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
-                          }}
-                          onMouseLeave={e => {
-                            (e.currentTarget as HTMLElement).style.background = "var(--plum-mist)";
-                            (e.currentTarget as HTMLElement).style.color = "var(--plum)";
-                            (e.currentTarget as HTMLElement).style.transform = "none";
-                          }}
-                        >
-                          {icon}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <h4>
+                    <a
+                      href={site.phone.tel}
+                      style={{ color: "inherit" }}
+                      onClick={() => track("call_click", { source: "feature_card" })}
+                    >
+                      {site.phone.display}
+                    </a>
+                  </h4>
+                  <SocialLinks variant="light" />
                 </div>
 
               </div>
@@ -138,11 +143,36 @@ function Header() {
             <div className="col-lg-8">
               <div className="about-images d-flex flex-wrap">
                 <div className="about-img col-4 p-2">
-                  <img src="images/about/img-1.jpg" alt="Santharpana treatment" className="img-fluid mt-2" />
-                  <img src="images/about/img-2.jpg" alt="Santharpana garden" className="img-fluid mt-2" />
+                  <img
+                    src={img("about/img-1.jpg")}
+                    alt="Ayurvedic treatment room at Santharpana"
+                    className="img-fluid mt-2"
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <img
+                    src={img("about/img-2.jpg")}
+                    alt="The herbal garden at Santharpana"
+                    className="img-fluid mt-2"
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="about-img col-4 p-2">
-                  <img src="images/about/img-3.jpg" alt="Santharpana therapy" className="img-fluid" style={{ height: "100%", objectFit: "cover" }} />
+                  <img
+                    src={img("about/img-3.jpg")}
+                    alt="Ayurvedic therapy session in progress"
+                    className="img-fluid"
+                    width={600}
+                    height={800}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ height: "100%", objectFit: "cover" }}
+                  />
                 </div>
                 <div className="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-start ps-4">
                   <div className="about-content" style={{ textAlign: "left" }}>
@@ -154,7 +184,6 @@ function Header() {
                     <Link
                       to="/services"
                       className="btn btn-main btn-round-full"
-                      onClick={() => window.scrollTo(0, 0)}
                     >
                       Our Services
                     </Link>
@@ -166,7 +195,7 @@ function Header() {
                 <span className="subtitle d-block mb-2">About Us</span>
                 <h2 style={{ fontSize: "1.6rem" }}>Personal Care &amp; Healthy Living</h2>
                 <p className="mt-2 mb-4" style={{ fontSize: "15px" }}>Rest and your energy will be restored. We provide the best leading Ayurvedic Spa services.</p>
-                <Link to="/services" className="btn btn-main btn-round-full" onClick={() => window.scrollTo(0, 0)}>
+                <Link to="/services" className="btn btn-main btn-round-full">
                   Our Services
                 </Link>
               </div>

@@ -1,78 +1,144 @@
+/**
+ * The seven treatments Santharpana actually offers.
+ *
+ * This list is kept identical to the WhatsApp auto-reply price list and to the
+ * Services section of the Google Business Profile. When a treatment changes,
+ * change it in all three places — a guest who is quoted one thing on Google and
+ * another on WhatsApp stops trusting both.
+ *
+ * ── Prices ───────────────────────────────────────────────────────────────────
+ * Prices are quoted in the WhatsApp auto-reply, never on the site, so they are
+ * recorded here as a comment rather than as data. A `priceUsd` field would be
+ * bundled into the JavaScript and readable by anyone who opened devtools, which
+ * is not what "prices only on WhatsApp" means. Comments are stripped at build.
+ *
+ * Keep in sync with the WhatsApp auto-reply (last updated 15 August 2026):
+ *
+ *   Full Body Massage                                60 min   USD 27
+ *   + Shirodhara                                    100 min   USD 44
+ *   + Steam Bath                                     90 min   USD 33
+ *   + Pinda Sweda                                    90 min   USD 38
+ *   + Facial                                         90 min   USD 38
+ *   + Shirodhara & Pinda Sweda                      120 min   USD 56
+ *   + Shirodhara, Pinda Sweda, Steam Bath & Facial  140 min   USD 60
+ */
+
 interface Services {
   id: number;
+  /** URL segment for /services/<slug>. Never change one after it is indexed. */
+  slug: string;
   imgSrc: string;
   name: string;
-  description: string;
+  /** Shorter label for cards, where the full name wraps badly */
+  cardName: string;
+  durationMinutes: number;
+  /** Human-readable duration shown on cards and detail pages */
   timeslot: string;
-  price: string;
+  /** ~155 characters — used as the page meta description and OG description */
+  summary: string;
+  description: string;
 }
 
 const servicesCard: Services[] = [
   {
     id: 1,
+    slug: "ayurvedic-full-body-massage",
     imgSrc: "images/service/service-1.jpg",
-    name: "Full Body Massage",
-    timeslot: "60 + 10 Minute Meditation Sessions",
-    price: "-",
+    name: "Ayurvedic Full Body Massage",
+    cardName: "Full Body Massage",
+    durationMinutes: 60,
+    timeslot: "60 Minutes",
+    summary:
+      "A 60-minute traditional Ayurvedic full body massage in Sigiriya, using warm herbal oils to release tension in the back, shoulders, legs and feet.",
     description:
-      "Santharpana Ayurveda Ashram offers a 60-minute full-body massage designed to relieve stress and tension, performed by experienced therapists trained in deep relaxation techniques. Using high-quality herbal oil or Aloe Vera cream, this massage covers your back, neck, shoulders, arms, legs, and feet, blending uique Ayurveda and deep tissue methods for a soothing experience. Our herbal oil nourishes the skin and promotes circulation, while Aloe Vera cream is gentle on sensitive skin.\n\n Our therapists customize the massage to meet your needs and maintain your comfort and privacy throughout. This rejuvenating massage is both luxurious and affordable. Book your appointment today for a relaxing escape at Santharpana Ayurveda Ashram.",
+      "Our signature treatment, and the one most guests choose after climbing Sigiriya Rock or Pidurangala. A full sixty minutes of traditional Ayurvedic massage covering your back, neck, shoulders, arms, legs and feet, performed by therapists trained in the classical Sri Lankan technique.\n\nWe work with warm herbal oil blended to the traditional recipe, or Aloe Vera cream if your skin is sensitive — tell us and we will adjust. The oil nourishes the skin and encourages circulation while the pressure releases the muscle tension that builds up over a long day of walking, driving or sitting on a plane.\n\nYour therapist will ask about sore spots before starting and check the pressure as they go. Female guests are treated by female therapists and male guests by male therapists, always in a private treatment room. Tell us if you would prefer otherwise.\n\nIf you are not sure where to start, start here. It is the foundation every other treatment on this list is built on.",
   },
-  // {
-  //   id: 2,
-  //   imgSrc: "images/service/service-2.jpg",
-  //   name: "Foot Massage",
-  //   timeslot: "45 Minute Sessions",
-  //   price: "-",
-  //   description:
-  //     "Experience relaxation and rejuvenation with a 40-50 minute foot massage at Santharpana Ayurveda Ashram. Our skilled therapists apply pressure to reflex points in your feet to boost circulation, relieve soreness, and promote relaxation. Seated in a comfortable chair, you'll enjoy a combination of Swedish and Shiatsu massage techniques.\n\n Perfect for those who spend a lot of time on their feet or suffer from conditions like plantar fasciitis, this massage helps reduce inflammation and improve flexibility. It also has mental and emotional benefits, lowering stress and anxiety while enhancing sleep quality.\n\n We use only natural oils and lotions to nourish your skin without harmful chemicals. The treatment is affordable and suitable for all ages. Book your foot massage today for a personalized, luxurious experience that will leave you feeling refreshed and revitalized.",
-  // },
-
   {
-    id: 5,
+    id: 2,
+    slug: "full-body-massage-with-shirodhara",
     imgSrc: "images/service/service-6.jpg",
-    name: "Shirodhara Therapy",
-    timeslot: "30 Minute Sessions",
-    price: "-",
+    name: "Full Body Massage with Shirodhara",
+    cardName: "Massage + Shirodhara",
+    durationMinutes: 100,
+    timeslot: "100 Minutes",
+    summary:
+      "A 100-minute Ayurvedic full body massage followed by Shirodhara — a steady stream of warm herbal oil poured across the forehead to quiet the mind.",
     description:
-      "Santharpana Ayurveda Ashram offers Shirodhara, a unique Ayurvedic treatment using heated herbal compresses to relieve head tension and promote relaxation. \n\n In Shirodhara, a heated herbal oil blend, made from natural herbs, spices, and oils, is applied to the head dot by dot, soothing stress, headaches, and anxiety while improving blood circulation. The gentle warmth and pressure create a calming and rejuvenating experience.\n\n We use high-quality herbs and oils that are free from harmful chemicals. Our experienced therapists ensure you receive a personalized and luxurious Shirodhara treatment, guiding you through each step to maximize the benefits.\n\n Book your Shirodhara session at Santharpana Ayurveda Ashram today to enjoy a stress-relieving and affordable start to your day, leaving you refreshed and revitalized.",
+      "The full body massage followed by Shirodhara, the treatment most people picture when they think of Ayurveda: a continuous, unbroken stream of warm herbal oil poured slowly across the forehead.\n\nThe massage comes first, working through the body for a full hour so the muscles are already soft. Then you lie back and the oil begins. The steady warmth over the forehead is what does the work — it slows the breathing, quiets the running commentary in the head, and leaves most guests somewhere between awake and asleep. It is the classical Ayurvedic answer to a restless mind, and it is why so many guests say they slept properly for the first time in a week afterwards.\n\nShirodhara is particularly worth choosing if you have been travelling hard, sleeping badly, or carrying tension headaches. Come with your hair unwashed if you can — the oil stays in for the best effect, and you will want to wash it out afterwards rather than before.\n\nAllow a little time to sit quietly with a herbal tea when it finishes. Standing straight up and walking out undoes half the benefit.",
   },
   {
     id: 3,
+    slug: "full-body-massage-with-steam-bath",
     imgSrc: "images/service/service-4.jpg",
-    name: "Sauna/Steam bath",
-    timeslot: "30 Minute Sessions",
-    price: "-",
+    name: "Full Body Massage with Steam Bath",
+    cardName: "Massage + Steam Bath",
+    durationMinutes: 90,
+    timeslot: "90 Minutes",
+    summary:
+      "A 90-minute Ayurvedic full body massage followed by a traditional herbal steam bath that opens the pores and carries the oils deeper into the muscles.",
     description:
-      "Santharpana Ayurveda Ashram offers a traditional steam bath designed to cleanse and rejuvenate the body and mind.\n\n The steam bath opens pores for deeper cleansing, detoxifies the body, and relaxes muscles. It improves circulation, reduces stress, and boosts immunity. Additionally, it provides antioxidant, anti-inflammatory, antibacterial, and analgesic benefits, while promoting better blood circulation.\n\n Enjoy this revitalizing experience in a private and peaceful setting, guided by our experienced therapists. Our steam bath is both affordable and accessible, ensuring that everyone can experience the relaxation and rejuvenation they deserve.\n\n Book your session now and feel refreshed at Santharpana Ayurveda Ashram!",
+      "The full body massage followed by our traditional herbal steam bath — the classical pairing, and the one to choose if your legs are aching.\n\nThe order matters. The massage works the herbal oils into the muscles first; the steam then opens the pores and lets the warmth carry those oils deeper, which is why the combination relieves stiffness far better than either does alone. The steam chamber is infused with herbs from our own garden, and you sit in it long enough to sweat properly.\n\nThis is the treatment we most often recommend to guests who have just come down off Sigiriya Rock or Pidurangala. Twelve hundred steps punishes the calves and thighs, and the heat reaches the deep muscle in a way that hands cannot.\n\nThe steam bath also does the ordinary useful things — cleanses the skin, clears the sinuses, and leaves you genuinely tired in the good way. Drink plenty of water afterwards, and plan a slow evening.",
   },
-  // {
-  //   id: 4,
-  //   imgSrc: "images/service/service-5.jpg",
-  //   name: " Head & Shoulder Massage",
-  //   timeslot: "45 Minute Sessions",
-  //   price: "-",
-  //   description:
-  //     "Santharpana Ayurveda Ashram offers a rejuvenating Head & Shoulder Massage designed to relieve tension and stress in the neck, shoulders, and head. This 40-50 minute session, performed by experienced therapists, starts with gentle strokes and gradually increases in pressure to release muscle tension.\n\n The massage focuses on key areas to improve blood flow, reduce inflammation, and alleviate headaches, migraines, and neck or shoulder pain. It's also an excellent way to reduce stress and promote relaxation, using calming techniques to ease the mind.\n\n We use high-quality natural oils that are nourishing and free from harmful chemicals, ensuring a safe and luxurious experience. Book your Head & Shoulder Massage at Santharpana Ayurveda Ashram today to enjoy a personalized and soothing treatment that leaves you feeling refreshed and rejuvenated.",
-  // },
-
+  {
+    id: 4,
+    slug: "full-body-massage-with-pinda-sweda",
+    imgSrc: "images/service/service-7.jpg",
+    name: "Full Body Massage with Pinda Sweda",
+    cardName: "Massage + Pinda Sweda",
+    durationMinutes: 90,
+    timeslot: "90 Minutes",
+    summary:
+      "A 90-minute Ayurvedic full body massage with Pinda Sweda — warm herbal poultices pressed into the muscles to ease deep stiffness and old aches.",
+    description:
+      "The full body massage followed by Pinda Sweda, in which hand-tied cloth bundles filled with herbs are warmed and pressed rhythmically over the body.\n\nWe make the poultices fresh: herbs and aromatic leaves gathered and tied into cloth bundles, then steamed until hot. Your therapist presses and rolls them across the shoulders, back and legs, re-warming them as they cool. The heat penetrates further than hands can, which is what makes this the right choice for stiffness that has settled in — an old shoulder, a bad back, joints that ache before rain.\n\nThe smell is part of the treatment. The steamed herbs release their oils as they are pressed, and the aroma is one of the things guests remember most clearly afterwards.\n\nChoose this over the steam bath if your problem is a specific stubborn area rather than general fatigue. Choose the steam bath if you simply want the heat everywhere at once.",
+  },
+  {
+    id: 5,
+    slug: "full-body-massage-with-facial",
+    imgSrc: "images/service/facial.jpg",
+    name: "Full Body Massage with Facial",
+    cardName: "Massage + Facial",
+    durationMinutes: 90,
+    timeslot: "90 Minutes",
+    summary:
+      "A 90-minute Ayurvedic full body massage finished with a herbal facial — cleansing, gentle massage and a fresh herbal pack for sun-tired skin.",
+    description:
+      "The full body massage finished with a traditional Ayurvedic facial, using herbs and preparations made in-house rather than bought in a bottle.\n\nAfter the hour of massage, the facial begins with a gentle cleanse, then a facial massage that works along the jaw, temples and forehead — the places that hold tension without your noticing. It finishes with a fresh herbal pack left on the skin while you rest.\n\nThis is the treatment to choose after a few days in the Sri Lankan sun. Dust, heat and long hours in a vehicle are hard on the face, and the cooling herbal pack settles skin that has had too much of all three. It is also the most popular choice among guests who want to feel presentable again before moving on to their next stop.\n\nTell your therapist if your skin is sensitive or reacts to anything in particular, and they will adjust the preparation.",
+  },
   {
     id: 6,
-    imgSrc: "images/service/service-7.jpg",
-    name: "Pinda Massage",
-    timeslot: "60 Minute Sessions",
-    price: "-",
+    slug: "full-body-massage-with-shirodhara-and-pinda-sweda",
+    imgSrc: "images/service/service-2.jpg",
+    name: "Full Body Massage with Shirodhara & Pinda Sweda",
+    cardName: "Massage + Shirodhara + Pinda",
+    durationMinutes: 120,
+    timeslot: "120 Minutes",
+    summary:
+      "Two hours of Ayurvedic treatment in Sigiriya: full body massage, warm herbal poultices for deep stiffness, then Shirodhara to settle the mind.",
     description:
-      "Santharpana Ayurveda Ashram offers the Aromatic Pinda Massage, a luxurious 60-minute full-body treatment combining Ayurvedic and Oriental traditions. The massage uses hand-crafted bags filled with aromatic herbs and essential oils, which are steamed and gently pressed over the body to relieve tension, improve circulation, and detoxify.\n\n The warmth and soothing aromas create a deeply relaxing experience, making it ideal for those with muscle pain, stiffness, or stress. The therapeutic heat and gentle pressure provide relief from soreness while promoting relaxation and reducing anxiety.\n\n Our experienced therapists tailor the treatment to your needs, ensuring a personalized and luxurious massage experience. The herbal bags contain only high-quality natural ingredients, free from harmful chemicals, to offer a holistic and rejuvenating session.\n\n Book your Aromatic Pinda Massage at Santharpana Ayurveda Ashram today for a calming and affordable way to pamper yourself. Experience the ultimate in relaxation and leave feeling refreshed and revitalized.",
+      "Two full hours, and the point at which a massage becomes a proper Ayurvedic treatment session rather than an hour of relief.\n\nIt runs in the classical order. The full body massage opens the treatment and softens the muscle. Pinda Sweda follows, with warm herbal poultices pressed into the areas that need more heat than hands can give. Shirodhara closes it, the steady stream of warm oil across the forehead settling everything the first two treatments have loosened.\n\nBody first, then the deep stiffness, then the mind. Each stage prepares the next, which is why the sequence is worth more than the sum of its parts, and why we recommend it to guests who have a full evening rather than a spare hour.\n\nCome unhurried. Two hours passes quickly here, but the treatment does not reward being rushed at either end.",
   },
   {
     id: 7,
+    slug: "complete-ayurvedic-treatment-package",
     imgSrc: "images/service/all.webp",
-    name: "Full Body Massage + Shirodhara + Steam Bath + Meditation",
-    timeslot: "130 Minute Package",
-    price: "-",
+    name: "Full Body Massage with Shirodhara, Pinda Sweda, Steam Bath & Facial",
+    cardName: "Complete Package",
+    durationMinutes: 140,
+    timeslot: "140 Minutes",
+    summary:
+      "Our complete 140-minute Ayurvedic package in Sigiriya: full body massage, Pinda Sweda, herbal steam bath, Shirodhara and a herbal facial.",
     description:
-      "Santharpana Ayurveda Ashram invites you to experience a rejuvenating package that includes a Full Body Massage, Shirodhara Therapy, a Steam Bath, and Meditation. This thoughtfully curated package blends Ayurvedic and traditional treatments, providing a comprehensive relaxation experience that leaves you feeling refreshed and revitalized.\n\n- Full Body Massage: Relieves stress, eases muscle tension, and promotes overall relaxation.\n- Shirodhara Therapy: A calming treatment where warm herbal oils are gently poured over the forehead, soothing the mind and encouraging mental clarity.\n- Steam Bath: Helps detoxify the body and enhances the benefits of the massage.\n- Meditation: Completes the experience by centering your mind and fostering inner peace.\n\nThis affordable package is ideal for those dealing with muscle pain, stiffness, or fatigue. It also helps alleviate stress and anxiety as the gentle warmth and pressure create a deeply relaxing effect.\n\nAt Santharpana Ayurveda Ashram, our skilled therapists use only high-quality, natural ingredients free from harmful chemicals or additives. Each treatment is tailored to your specific needs, ensuring a luxurious and personalized experience.\n\nBook your Full Body Massage + Shirodhara + Steam Bath + Meditation package today and discover the ultimate way to pamper yourself. Treat your body and mind to this holistic journey of relaxation and rejuvenation.",
+      "Everything we offer, in one unbroken session of just over two hours. This is the treatment guests book when Sigiriya is the resting point of a long trip rather than a stop along it.\n\nThe sequence is deliberate. The full body massage works the herbal oils into the muscle. Pinda Sweda follows with warm herbal poultices for the areas that hold stiffness. The steam bath then opens the pores and carries the oils deeper — this is the stage that finally releases tired legs after the rock. Shirodhara comes next, the warm oil across the forehead quieting the mind once the body has let go. The herbal facial closes the session, cooling skin that has had a long day of sun.\n\nNothing here is rushed to fit the time. Each stage runs its proper length, which is why the package takes 140 minutes rather than the sum of a shortened list.\n\nIt is also the best value of anything we offer. Book it a little in advance if you can — we only run a few of these a day, and evening slots go first.",
   },
 ];
 
-export { servicesCard, type Services };
+/** Lookup used by the /services/<slug> route. */
+const serviceBySlug = (slug: string | undefined) =>
+  slug ? servicesCard.find((s) => s.slug === slug) : undefined;
+
+/** Lookup for legacy /description?id=N links, which now redirect to the slug URL. */
+const serviceById = (id: string | null) =>
+  id ? servicesCard.find((s) => String(s.id) === id) : undefined;
+
+export { servicesCard, serviceBySlug, serviceById, type Services };

@@ -1,47 +1,50 @@
-import { MdAlternateEmail, MdSupportAgent, MdWrongLocation } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { MdAlternateEmail, MdLocationOn, MdSupportAgent } from "react-icons/md";
+import { externalLink, site } from "../../config/site";
 
 const cards = [
   {
-    icon: <MdSupportAgent size={32} color="var(--plum)" />,
+    icon: <MdSupportAgent size={32} color="var(--plum)" aria-hidden="true" />,
     label: "Call Us",
-    value: "+94 76 243 6139",
-    href: "tel:+94762436139",
+    value: site.phone.display,
+    href: site.phone.tel,
+    external: false,
   },
   {
-    icon: <MdAlternateEmail size={32} color="var(--plum)" />,
+    icon: <MdAlternateEmail size={32} color="var(--plum)" aria-hidden="true" />,
     label: "Email Us",
-    value: "gaminianilkumara@gmail.com",
-    href: "mailto:gaminianilkumara@gmail.com",
+    value: site.email,
+    href: site.mailto,
+    external: false,
   },
   {
-    icon: <MdWrongLocation size={32} color="var(--plum)" />,
+    icon: <MdLocationOn size={32} color="var(--plum)" aria-hidden="true" />,
     label: "Our Location",
-    value: "No.43, Rotaryagama, Inamaluwa, Sigiriya, Sri Lanka",
-    href: "https://goo.gl/maps/AmRn53RPKU83NJRr9",
+    value: site.address.full,
+    href: site.maps.link,
+    external: true,
   },
 ];
 
-function contactCards() {
+function ContactCards() {
   return (
-    <>
-      <section className="section contact-info pb-0">
-        <div className="container">
-          <div className="row g-4">
-            {cards.map(({ icon, label, value, href }) => (
-              <div className="col-lg-4 col-sm-6 col-md-6" key={label}>
-                <div className="contact-block h-100">
-                  <div className="mb-3">{icon}</div>
-                  <h5>{label}</h5>
-                  <Link to={href}>{value}</Link>
-                </div>
+    <section className="section contact-info pb-0">
+      <div className="container">
+        <div className="row g-4">
+          {cards.map(({ icon, label, value, href, external }) => (
+            <div className="col-lg-4 col-sm-6 col-md-6" key={label}>
+              <div className="contact-block h-100">
+                <div className="mb-3">{icon}</div>
+                <h5>{label}</h5>
+                <a href={href} {...(external ? externalLink : {})}>
+                  {value}
+                </a>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
-export default contactCards;
+export default ContactCards;

@@ -1,0 +1,13 @@
+# Host canonicalisation for Cloudflare Pages / Netlify.
+#
+# santharpanaspa.com and www.santharpanaspa.com both used to answer with 200 and
+# no redirect between them, so search engines saw two copies of every page and
+# split the ranking signals across both. The canonical tags name the www host, so
+# the apex redirects to it.
+#
+# Path redirects are deliberately NOT handled here: /appoinment and /description
+# are prerendered as real files that bounce client-side, because a static host
+# serves an existing file in preference to a rule in this table.
+
+https://santharpanaspa.com/*  https://www.santharpanaspa.com/:splat  301!
+http://santharpanaspa.com/*   https://www.santharpanaspa.com/:splat  301!
