@@ -1,5 +1,4 @@
 import { useRef, useState, type FormEvent } from "react";
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -26,6 +25,11 @@ function ContactForm() {
 
     setSending(true);
     try {
+      // Imported on submit rather than at module scope: every route now ships in
+      // one bundle, and emailjs is ~38 KB that only matters to the handful of
+      // visitors who actually send the form.
+      const { default: emailjs } = await import("@emailjs/browser");
+
       await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,

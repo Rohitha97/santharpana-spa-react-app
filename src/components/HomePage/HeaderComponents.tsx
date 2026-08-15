@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { AiOutlineBook, AiOutlineClockCircle } from "react-icons/ai";
+import { AiOutlineBook, AiOutlineClockCircle, AiFillStar } from "react-icons/ai";
 import { MdSupportAgent } from "react-icons/md";
 import SocialLinks from "../Layouts/SocialLinks";
-import { externalLink, site } from "../../config/site";
+import { externalLink, site, whatsappLink } from "../../config/site";
 import { img } from "../../utils/image";
+import { track } from "../../utils/analytics";
 
 function Header() {
   return (
@@ -21,11 +22,30 @@ function Header() {
                 <p className="banner-p mb-4">
                   The Authentic Ayurvedic Massage specialises in holistic body healing and mental relaxation, deep in the greenery of Sigiriya.
                 </p>
+                {/* The strongest thing we have to say, said before the buttons */}
+                <a
+                  className="banner-rating"
+                  href={site.maps.link}
+                  onClick={() => track("review_click", { source: "hero" })}
+                  {...externalLink}
+                >
+                  <span className="banner-rating-stars" aria-hidden="true">
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <AiFillStar key={i} />
+                    ))}
+                  </span>
+                  <span>
+                    {site.reviews.rating} from {site.reviews.count} Google reviews
+                  </span>
+                </a>
                 <div className="btn-container">
                   <a
                     className="btn btn-main-2 btn-round-full"
-                    aria-label="Chat on WhatsApp"
-                    href={site.phone.whatsapp}
+                    aria-label="Book an appointment on WhatsApp"
+                    href={whatsappLink(
+                      "Hello Santharpana, I'd like to book an Ayurvedic treatment. Could you send me your price list and available times?"
+                    )}
+                    onClick={() => track("whatsapp_click", { source: "hero" })}
                     {...externalLink}
                   >
                     Book an Appointment
@@ -56,15 +76,21 @@ function Header() {
                   <div className="feature-icon">
                     <AiOutlineBook color="var(--plum)" size={26} />
                   </div>
-                  <span>24-Hour Service</span>
-                  <h4>Book Online</h4>
+                  {/* Was "24-Hour Service", which contradicted the 9am–9pm hours
+                      on the Google listing right below it. */}
+                  <span>Open Every Day</span>
+                  <h4>Book on WhatsApp</h4>
                   <p className="mb-4">
-                    Sometimes the best thing to do is just call it a day and go get a massage.
+                    Message us with a treatment and a time. We reply with the price list and confirm
+                    your slot.
                   </p>
                   <a
-                    aria-label="Chat on WhatsApp"
-                    href={site.phone.whatsapp}
+                    aria-label="Make an appointment on WhatsApp"
+                    href={whatsappLink(
+                      "Hello Santharpana, I'd like to make an appointment. What times do you have available?"
+                    )}
                     className="btn btn-main btn-round-full"
+                    onClick={() => track("whatsapp_click", { source: "feature_card" })}
                     {...externalLink}
                   >
                     Make an Appointment
@@ -93,7 +119,11 @@ function Header() {
                   </div>
                   <span>Contact Us</span>
                   <h4>
-                    <a href={site.phone.tel} style={{ color: "inherit" }}>
+                    <a
+                      href={site.phone.tel}
+                      style={{ color: "inherit" }}
+                      onClick={() => track("call_click", { source: "feature_card" })}
+                    >
                       {site.phone.display}
                     </a>
                   </h4>

@@ -3,6 +3,7 @@ import ScrollTriggerButton from "./ScrollButton";
 import SocialLinks from "./SocialLinks";
 import { externalLink, site } from "../../config/site";
 import { img } from "../../utils/image";
+import { track } from "../../utils/analytics";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,8 +36,17 @@ function Footer() {
                 >
                   {site.address.street}
                   <br />
-                  {site.address.city}, {site.address.country}
+                  {site.address.city} {site.address.postalCode}, {site.address.country}
                 </address>
+                <a
+                  href={site.maps.directions}
+                  className="d-inline-block mt-2"
+                  style={{ fontSize: "14px", color: "var(--terra-pale)" }}
+                  onClick={() => track("directions_click", { source: "footer" })}
+                  {...externalLink}
+                >
+                  Get directions →
+                </a>
               </div>
             </div>
 
@@ -62,8 +72,10 @@ function Footer() {
                 <h4>Get in Touch</h4>
                 <div className="divider mb-4"></div>
 
+                {/* Was "Support Available 24 / 7", which contradicted both the
+                    opening hours below it and the Google listing. */}
                 <div className="footer-contact-block mb-4">
-                  <span className="h6 d-block">Support Available 24 / 7</span>
+                  <span className="h6 d-block">Email Us Anytime</span>
                   <h4>
                     <a href={site.mailto}>{site.email}</a>
                   </h4>
@@ -74,7 +86,11 @@ function Footer() {
                     {site.hours.days} · {site.hours.time}
                   </span>
                   <h4>
-                    <a href={site.phone.whatsapp} {...externalLink}>
+                    <a
+                      href={site.phone.whatsapp}
+                      onClick={() => track("whatsapp_click", { source: "footer" })}
+                      {...externalLink}
+                    >
                       {site.phone.display}
                     </a>
                   </h4>
