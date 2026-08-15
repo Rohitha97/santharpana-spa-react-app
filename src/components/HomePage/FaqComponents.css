@@ -1,0 +1,106 @@
+/* Pre-booking questions — see FaqComponents.tsx */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-xs);
+  overflow: hidden;
+  transition: box-shadow var(--t-base);
+}
+
+.faq-item[open] {
+  box-shadow: var(--sh-sm);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--plum);
+  list-style: none;
+}
+
+/* Hide the native disclosure triangle in both engines */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::marker {
+  content: "";
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: -2px;
+}
+
+/* Custom +/− marker, drawn from two bars so it can rotate into a minus */
+.faq-marker {
+  position: relative;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.faq-marker::before,
+.faq-marker::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+  background: var(--terra);
+  transform: translateY(-50%);
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+
+.faq-marker::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.faq-item[open] .faq-marker::after {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 0;
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 22px 20px;
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--text-mid);
+  max-width: 62ch;
+}
+
+.faq-footer {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.faq-footer a {
+  color: var(--terra);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .faq-item,
+  .faq-marker::before,
+  .faq-marker::after {
+    transition: none;
+  }
+}

@@ -29,10 +29,11 @@ function ServicesComponents() {
                   decoding="async"
                 />
                 <div className="content">
-                  <h4 className="title-mobile">{service.name}</h4>
+                  <h4 className="title-mobile">{service.cardName}</h4>
+                  <p className="service-duration">{service.timeslot}</p>
                   <Link
                     className="btn btn-outline-dark btn-round-full link-mobile"
-                    to={`/description?id=${service.id}`}
+                    to={`/services/${service.slug}`}
                     aria-label={`Learn more about ${service.name}`}
                   >
                     Learn More

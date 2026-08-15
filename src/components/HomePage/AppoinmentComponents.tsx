@@ -1,6 +1,7 @@
 import { MdPhoneInTalk } from "react-icons/md";
-import { externalLink, site } from "../../config/site";
+import { externalLink, site, whatsappLink } from "../../config/site";
 import { img } from "../../utils/image";
+import { track } from "../../utils/analytics";
 
 function AppoinmentComponents() {
   return (
@@ -38,14 +39,17 @@ function AppoinmentComponents() {
                 via WhatsApp
               </h2>
               <p className="mb-4" style={{ fontSize: "15.5px", color: "var(--text-muted)" }}>
-                Provide the service name and your preferred date — we'll get back to you as soon as
-                possible to confirm your session.
+                Tap below and your message is already written — just add the treatment and the day
+                that suits you. Our reply comes straight back with the full price list.
               </p>
               <div className="d-flex align-items-center gap-3 flex-wrap">
                 <a
                   className="btn btn-main btn-round-full"
                   aria-label="Chat on WhatsApp"
-                  href={site.phone.whatsapp}
+                  href={whatsappLink(
+                    "Hello Santharpana, I'd like to book a treatment.\n\nTreatment: \nPreferred day: \nPreferred time: \nNumber of guests: \n\nCould you confirm availability and send me the price list?"
+                  )}
+                  onClick={() => track("whatsapp_click", { source: "appointment_section" })}
                   {...externalLink}
                 >
                   Chat on WhatsApp
@@ -54,6 +58,7 @@ function AppoinmentComponents() {
                   className="btn btn-solid-border btn-round-full"
                   href={site.phone.tel}
                   style={{ fontSize: "0.8rem" }}
+                  onClick={() => track("call_click", { source: "appointment_section" })}
                 >
                   Call Us
                 </a>

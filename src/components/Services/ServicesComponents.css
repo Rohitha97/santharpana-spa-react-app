@@ -1,2 +1,12 @@
-/* Service cards — styles now handled in index.css via .service-block */
-/* This file retained for import compatibility */
+/* Service cards — layout handled in index.css via .service-block */
+
+/* Duration sits under the card title so the grid answers "how long?" without a
+   click. Prices are quoted in the WhatsApp reply, so time is the only figure
+   shown here. */
+.service-duration {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

@@ -20,9 +20,9 @@ function PricingComponents() {
           <div className="row justify-content-center">
             {servicesCard.map((service) => (
               <div className="col-6 col-sm-6 col-md-6 col-lg-4 mb-4" key={service.id}>
-                <Link to={`/description?id=${service.id}`}>
+                <Link to={`/services/${service.slug}`}>
                   <div className="service-item responsive-card">
-                    <h4 className="responsive-text">{service.name}</h4>
+                    <h4 className="responsive-text">{service.cardName}</h4>
                     <p className="responsive-text">{service.timeslot}</p>
                   </div>
                 </Link>
