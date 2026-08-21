@@ -137,7 +137,7 @@ const staticPages: PageMeta[] = [
     path: "/",
     title: "Santharpana Ayurveda Ashram | Ayurveda & Massage in Sigiriya",
     description:
-      "Government-registered Ayurvedic spa in Sigiriya. Traditional full body massage, Shirodhara, Pinda Sweda and herbal steam bath. Open daily 9am–9pm. Book on WhatsApp.",
+      "Government-registered Ayurvedic spa in Sigiriya. Traditional full body massage, Shirodhara, Pinda Sweda and herbal steam bath. Open daily 9am–10pm. Book on WhatsApp.",
     image: DEFAULT_IMAGE,
     priority: 1.0,
     changefreq: "monthly",
@@ -173,7 +173,7 @@ const staticPages: PageMeta[] = [
     path: "/contact",
     title: "Contact & Directions | Santharpana Ayurveda, Sigiriya",
     description:
-      "Find us on T.B. Thennakoon Mawatha, Sigiriya, open daily 9am–9pm. Call +94 76 243 6139, message us on WhatsApp, or get directions on Google Maps.",
+      "Find us on T.B. Thennakoon Mawatha, Sigiriya, open daily 9am–10pm. Call +94 76 243 6139, message us on WhatsApp, or get directions on Google Maps.",
     image: DEFAULT_IMAGE,
     priority: 0.7,
     changefreq: "yearly",

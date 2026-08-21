@@ -61,10 +61,10 @@ export const site = {
 
   hours: {
     days: "Mon – Sunday",
-    time: "09:00 – 21:00",
+    time: "09:00 – 22:00",
     /** 24-hour strings for schema.org openingHoursSpecification */
     opens: "09:00",
-    closes: "21:00",
+    closes: "22:00",
   },
 
   /**

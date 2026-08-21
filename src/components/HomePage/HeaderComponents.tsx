@@ -76,7 +76,7 @@ function Header() {
                   <div className="feature-icon">
                     <AiOutlineBook color="var(--plum)" size={26} />
                   </div>
-                  {/* Was "24-Hour Service", which contradicted the 9am–9pm hours
+                  {/* Was "24-Hour Service", which contradicted the 9am–10pm hours
                       on the Google listing right below it. */}
                   <span>Open Every Day</span>
                   <h4>Book on WhatsApp</h4>
