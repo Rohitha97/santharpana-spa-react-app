@@ -145,8 +145,21 @@ const sitemap = [
 await writeFile(path.join(DIST, "sitemap.xml"), sitemap, "utf8");
 
 // ── robots.txt ─────────────────────────────────────────────────────────────
+// `*` already admits these; naming them keeps AI search/answer engines
+// (ChatGPT, Claude, Perplexity, Gemini, Apple, Copilot) explicitly welcome
+// if the catch-all rule is ever tightened.
+const aiCrawlers = [
+  "OAI-SearchBot", "ChatGPT-User", "GPTBot",
+  "Claude-SearchBot", "Claude-User", "ClaudeBot",
+  "PerplexityBot", "Perplexity-User",
+  "Google-Extended", "Applebot-Extended", "Bingbot",
+  "DuckAssistBot", "meta-externalagent", "CCBot",
+];
 const robots = [
   `User-agent: *`,
+  `Allow: /`,
+  ``,
+  ...aiCrawlers.map((bot) => `User-agent: ${bot}`),
   `Allow: /`,
   ``,
   `Sitemap: ${site.url}/sitemap.xml`,
