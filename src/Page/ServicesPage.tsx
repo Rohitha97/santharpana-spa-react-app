@@ -8,7 +8,7 @@ function ServicesPage() {
   return (
     <>
       <NavBar />
-      <PageHeader title="What We Do" subtitle="Our services" />
+      <PageHeader title="Ayurvedic Treatments in Sigiriya" subtitle="Our services" />
       <ServicesComponents />
       <GetAppoinmentBanner />
       <Footer />

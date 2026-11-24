@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <>
       <NavBar />
-      <PageHeader title="About Us" subtitle="About Us" />
+      <PageHeader title="Ayurvedic Spa in Sigiriya" subtitle="About Us" />
       <AboutDescriptionComponents />
       <GalleryComponents />
       <Footer />

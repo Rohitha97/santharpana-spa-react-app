@@ -9,7 +9,7 @@ function ContactPage() {
   return (
     <>
       <NavBar />
-      <PageHeader title="Get In Touch" subtitle="Contact Us" />
+      <PageHeader title="Contact & Directions" subtitle="Contact Us" />
       <ContactCards />
       <ContactForm />
       <Footer />

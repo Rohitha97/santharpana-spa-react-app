@@ -23,7 +23,7 @@ function GalleryComponents() {
                   <img
                     src={img(item.imgSrc)}
                     className="gallery-img"
-                    alt={`Santharpana Ayurveda Ashram, photo ${index + 1}`}
+                    alt={item.alt}
                     width={600}
                     height={600}
                     loading="lazy"

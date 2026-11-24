@@ -8,7 +8,7 @@
  * never disagree —
  *
  *   1. scripts/prerender.mjs  — bakes these into the static HTML crawlers read
- *   2. scripts/sitemap.mjs    — lists the same URLs in sitemap.xml
+ *   2. scripts/prerender.mjs  — also lists the same URLs in sitemap.xml
  *   3. components/Seo.tsx     — keeps them correct during client-side navigation
  *
  * Titles are kept under ~60 characters so Google does not truncate them, and
@@ -39,7 +39,9 @@ export const DEFAULT_IMAGE = ogImage("default");
 /** The business itself. Referenced by @id from the page-level schema below. */
 export const businessSchema = {
   "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
+  // DaySpa is the most specific schema.org type for this business
+  // (DaySpa → HealthAndBeautyBusiness → LocalBusiness).
+  "@type": "DaySpa",
   "@id": `${site.url}/#business`,
   name: site.name,
   url: site.url,
@@ -135,9 +137,9 @@ export const faqs = [
 const staticPages: PageMeta[] = [
   {
     path: "/",
-    title: "Santharpana Ayurveda Ashram | Ayurveda & Massage in Sigiriya",
+    title: "Ayurvedic Spa & Massage in Sigiriya | Santharpana Ayurveda",
     description:
-      "Government-registered Ayurvedic spa in Sigiriya. Traditional full body massage, Shirodhara, Pinda Sweda and herbal steam bath. Open daily 9am–10pm. Book on WhatsApp.",
+      "Government-registered Ayurvedic spa in Sigiriya. Full body massage, Shirodhara, Pinda Sweda and herbal steam bath. Open daily 9am–10pm. Book on WhatsApp.",
     image: DEFAULT_IMAGE,
     priority: 1.0,
     changefreq: "monthly",
@@ -164,7 +166,7 @@ const staticPages: PageMeta[] = [
     path: "/appointment",
     title: "Book an Ayurvedic Massage in Sigiriya | Santharpana",
     description:
-      "Book your Ayurvedic treatment in Sigiriya. Tell us the treatment and your preferred time on WhatsApp and we will confirm your slot, with the price list by return.",
+      "Book your Ayurvedic treatment in Sigiriya. Send the treatment and your preferred time on WhatsApp and we confirm your slot, with the price list by return.",
     image: DEFAULT_IMAGE,
     priority: 0.8,
     changefreq: "monthly",
@@ -200,22 +202,16 @@ export const notFoundPage: PageMeta = {
 };
 
 /**
- * URLs that used to exist and may still be linked or indexed. They get a real
- * file on disk so a static host serves something rather than a 404, and App.tsx
- * bounces the visitor to the current URL as soon as React boots.
+ * URLs that used to exist and may still be linked or indexed, and cannot be
+ * redirected by the host. /description?id=N needs the query string to pick a
+ * treatment, which only React can read, so it gets a real file on disk and
+ * App.tsx bounces the visitor as soon as React boots.
  *
- * Written as noindex so Google drops them once it recrawls, rather than keeping
- * two URLs for the same page. Both are safe to delete once Search Console shows
- * no impressions for them.
+ * Written as noindex so Google drops it once it recrawls. (/appoinment is a
+ * plain path, so it is a real 301 in public/_redirects instead.) Safe to delete
+ * once Search Console shows no impressions for it.
  */
 const legacyPages: PageMeta[] = [
-  {
-    path: "/appoinment",
-    title: "Book an Ayurvedic Massage in Sigiriya | Santharpana",
-    description: "This page has moved to /appointment.",
-    image: DEFAULT_IMAGE,
-    noindex: true,
-  },
   {
     // Treatments used to live at /description?id=N. The query string is only
     // readable once React runs, so this has to redirect client-side.
@@ -251,6 +247,17 @@ export function schemaFor(path: string): object[] {
   const graph: object[] = [businessSchema];
 
   if (path === "/") {
+    // Tells Google which name to show as the site name above the result,
+    // instead of guessing it from the domain or title.
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: site.name,
+      alternateName: [site.shortName, "Santharpana Ayurveda"],
+      url: `${site.url}/`,
+      publisher: { "@id": `${site.url}/#business` },
+    });
     graph.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -274,6 +281,17 @@ export function schemaFor(path: string): object[] {
       serviceType: "Ayurvedic treatment",
       provider: { "@id": `${site.url}/#business` },
       areaServed: { "@type": "Place", name: "Sigiriya" },
+    });
+    // Shows "santharpanaspa.com › Services › <treatment>" in the result
+    // instead of the raw URL.
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { name: "Home", item: `${site.url}/` },
+        { name: "Services", item: `${site.url}/services` },
+        { name: service.name, item: `${site.url}${path}` },
+      ].map((crumb, index) => ({ "@type": "ListItem", position: index + 1, ...crumb })),
     });
   }
 

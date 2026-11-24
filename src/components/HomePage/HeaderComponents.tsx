@@ -18,7 +18,7 @@ function Header() {
                 <p className="subtitle-tag">
                   Authentic Ayurvedic Healing
                 </p>
-                <h1>Your&nbsp;Most&nbsp;Trusted<br />Ayurvedic&nbsp;Spa</h1>
+                <h1>Your&nbsp;Most&nbsp;Trusted<br />Ayurvedic&nbsp;Spa in&nbsp;Sigiriya</h1>
                 <p className="banner-p mb-4">
                   The Authentic Ayurvedic Massage specialises in holistic body healing and mental relaxation, deep in the greenery of Sigiriya.
                 </p>

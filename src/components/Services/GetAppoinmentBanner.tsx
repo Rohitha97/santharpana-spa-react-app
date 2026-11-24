@@ -15,7 +15,7 @@ function GetAppoinmentBanner() {
                 </h2>
                 <div className="d-flex flex-wrap gap-3">
                   <Link
-                    to="/appoinment"
+                    to="/appointment"
                     className="btn btn-main-2 btn-round-full"
                   >
                     Get an Appointment

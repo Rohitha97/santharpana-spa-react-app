@@ -141,7 +141,7 @@ function NavBar() {
                 {[
                   { to: "/", label: "Home", end: true },
                   { to: "/services", label: "Services" },
-                  { to: "/appoinment", label: "Appointment" },
+                  { to: "/appointment", label: "Appointment" },
                   { to: "/about", label: "About" },
                   { to: "/contact", label: "Contact" },
                 ].map(({ to, label, end }) => (

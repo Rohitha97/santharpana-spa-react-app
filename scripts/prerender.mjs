@@ -120,7 +120,9 @@ for (const meta of prerenderPages) {
 // ── sitemap.xml ────────────────────────────────────────────────────────────
 // Both of these used to return the React app with a 200, so crawlers asking for
 // directives got HTML instead and neither file did anything.
-const today = new Date().toISOString().slice(0, 10);
+// No <lastmod>: the only date available here is the build date, which changes
+// on every deploy whether or not the page did. Google ignores lastmod on sites
+// where it proves inaccurate, so an honest omission beats a wrong date.
 const sitemap = [
   `<?xml version="1.0" encoding="UTF-8"?>`,
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
@@ -130,7 +132,6 @@ const sitemap = [
       [
         `  <url>`,
         `    <loc>${site.url}${page.path === "/" ? "/" : page.path}</loc>`,
-        `    <lastmod>${today}</lastmod>`,
         page.changefreq ? `    <changefreq>${page.changefreq}</changefreq>` : null,
         page.priority ? `    <priority>${page.priority.toFixed(1)}</priority>` : null,
         `  </url>`,

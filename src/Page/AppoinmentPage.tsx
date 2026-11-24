@@ -8,7 +8,7 @@ function AppoinmentPage() {
   return (
     <>
       <NavBar />
-      <PageHeader title="Appointment" subtitle="Book your Treatment" />
+      <PageHeader title="Book an Ayurvedic Treatment" subtitle="Appointment" />
       <AppoinmentComponents />
       <Footer />
     </>

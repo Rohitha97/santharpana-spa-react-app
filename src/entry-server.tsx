@@ -18,10 +18,9 @@ const RENDER_TIMEOUT_MS = 20_000;
 /**
  * Renders one route to a complete HTML string for scripts/prerender.mjs.
  *
- * renderToPipeableStream is used rather than renderToString because the route
- * components are React.lazy: renderToString would emit the Suspense fallback
- * (the loading screen) instead of the page. `onAllReady` waits for every lazy
- * chunk to resolve, so what lands in the file is the finished page.
+ * renderToPipeableStream with `onAllReady` waits for any Suspense boundary to
+ * resolve, so what lands in the file is always the finished page rather than a
+ * loading fallback.
  */
 export function render(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
