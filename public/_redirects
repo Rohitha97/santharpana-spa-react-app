@@ -1,17 +1,13 @@
-# Host canonicalisation for Cloudflare Pages / Netlify.
+# Path redirects for Cloudflare Pages.
 #
-# santharpanaspa.com and www.santharpanaspa.com both used to answer with 200 and
-# no redirect between them, so search engines saw two copies of every page and
-# split the ranking signals across both. The canonical tags name the www host, so
-# the apex redirects to it.
+# The apex → www redirect is NOT here: Pages ignores domain-level rules in this
+# file. It lives in the Cloudflare dashboard (santharpanaspa.com → Rules →
+# Redirect Rules → "Redirect apex to www").
 #
 # /appoinment (old misspelling) gets a real 301 so its link equity passes to
 # /appointment. /description?id=N stays a prerendered noindex shell that
 # redirects client-side, because only React can read the id to pick the
 # treatment page.
-
-https://santharpanaspa.com/*  https://www.santharpanaspa.com/:splat  301!
-http://santharpanaspa.com/*   https://www.santharpanaspa.com/:splat  301!
 
 /appoinment   /appointment   301
 /appoinment/  /appointment   301
