@@ -9,8 +9,9 @@ const DIST = fileURLToPath(new URL('./dist', import.meta.url))
 /**
  * Makes `npm run preview` resolve URLs the way the static host does.
  *
- * Cloudflare Pages answers /services with dist/services/index.html and unknown
- * URLs with 404.html at a real 404 status. Vite's preview server does neither —
+ * Cloudflare Pages answers /services with dist/services.html, redirects
+ * /services/ to /services, and answers unknown URLs with 404.html at a real 404
+ * status. Vite's preview server does neither —
  * it either rewrites everything to index.html (appType 'spa', which hides the
  * whole point of prerendering) or 404s on every extensionless path ('mpa').
  * Neither tells you what visitors will actually get, so preview does it here.
@@ -25,11 +26,19 @@ function previewStaticHost(): Plugin {
         // Real assets (anything with an extension) are served untouched.
         if (path.extname(pathname)) return next()
 
-        const clean = pathname === '/' ? '' : pathname.replace(/\/+$/, '')
-        const candidate = path.join(DIST, clean, 'index.html')
+        const qs = query ? `?${query}` : ''
+        if (pathname === '/') return next()
+
+        const clean = pathname.replace(/\/+$/, '')
+        const candidate = path.join(DIST, `${clean}.html`)
 
         if (existsSync(candidate)) {
-          req.url = `${clean}/index.html${query ? `?${query}` : ''}`
+          if (clean !== pathname) {
+            res.statusCode = 308
+            res.setHeader('Location', `${clean}${qs}`)
+            return res.end()
+          }
+          req.url = `${clean}.html${qs}`
           return next()
         }
 

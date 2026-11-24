@@ -13,7 +13,7 @@
  *   dist/index.html                      <- the template, with hashed asset URLs
  *   dist-ssr/entry-server.js             <- render(url) => finished HTML string
  *
- * and writes dist/<route>/index.html for every entry in src/config/seo.ts, plus
+ * and writes dist/<route>.html for every entry in src/config/seo.ts, plus
  * dist/404.html, dist/robots.txt and dist/sitemap.xml.
  */
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -85,11 +85,18 @@ function headFor(meta) {
   return lines.filter((line) => line !== null).join("\n  ");
 }
 
-/** dist/index.html for "/", dist/services/index.html for "/services", etc. */
+/**
+ * dist/index.html for "/", dist/services.html for "/services", etc.
+ *
+ * Not dist/services/index.html: Cloudflare Pages serves a folder's index.html
+ * only at the trailing-slash URL and 308-redirects /services to /services/,
+ * while every canonical, sitemap entry and internal link uses /services. A
+ * flat services.html is served at /services directly.
+ */
 function outputPath(routePath) {
   if (routePath === "/") return path.join(DIST, "index.html");
   if (routePath === "/404") return path.join(DIST, "404.html");
-  return path.join(DIST, routePath.slice(1), "index.html");
+  return path.join(DIST, `${routePath.slice(1)}.html`);
 }
 
 const seoBlockPattern = new RegExp(
